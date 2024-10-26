@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import {usePathname} from 'next/navigation'
 import * as React from 'react'
+import InnovatrLogo from './innovatr-logo'
 import {ReactNode, Suspense, useEffect, useRef} from 'react'
 import toast, {Toaster} from 'react-hot-toast'
 
@@ -18,7 +19,7 @@ export function UiLayout({ children, links }: { children: ReactNode; links: { la
       <div className="navbar bg-base-300 text-neutral-content flex-col md:flex-row space-y-2 md:space-y-0">
         <div className="flex-1">
           <Link className="btn btn-ghost normal-case text-xl" href="/">
-            <img className="h-4 md:h-6" alt="Logo" src="/logo.png" />
+            <InnovatrLogo className="h-4 md:h-6" />
           </Link>
           <ul className="menu menu-horizontal px-1 space-x-2">
             {links.map(({ label, path }) => (

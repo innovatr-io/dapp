@@ -33,11 +33,6 @@ export function UiLayout({
             >
               {collapsed ? '→' : '←'}
             </button>
-            <div className="mb-6">
-              <Link href="/" className="flex justify-center">
-                <InnovatrLogo className={collapsed ? "h-6" : "h-8"} />
-              </Link>
-            </div>
             <nav className={`flex-1 ${collapsed ? 'hidden' : ''}`}>
               <ul className="menu menu-vertical w-full">
                 <li className="menu-title">Navigation</li>
@@ -96,6 +91,9 @@ export function UiLayout({
             </nav>
             <div className={`mt-auto border-t border-base-300 pt-4 ${collapsed ? 'hidden' : ''}`}>
               <div className="px-4">
+                <Link href="/" className="flex justify-center mb-6">
+                  <InnovatrLogo className={collapsed ? "h-6" : "h-8"} />
+                </Link>
                 <h3 className="text-lg font-semibold mb-2">Contact</h3>
                 <p className="text-sm text-base-content/70 mb-4">innovate@innovatr.io</p>
                 <h3 className="text-lg font-semibold mb-2">Follow Us</h3>

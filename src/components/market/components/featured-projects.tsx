@@ -8,6 +8,7 @@ export function FeaturedProjects({ projects }: { projects: Project[] }) {
   
   const getVisibleCount = () => {
     if (typeof window === 'undefined') return 1;
+    if (window.innerWidth >= 1280) return 4; // xl breakpoint
     if (window.innerWidth >= 1024) return 3;
     if (window.innerWidth >= 768) return 2;
     return 1;

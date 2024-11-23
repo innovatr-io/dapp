@@ -79,11 +79,13 @@ export function UiLayout({
           </nav>
         </aside>
         <div className="flex-1 ml-64 flex flex-col min-h-screen">
-          <Navbar links={links} />
-          <ClusterChecker>
-            <AccountChecker />
-          </ClusterChecker>
-          <main className="flex-1 px-8 py-24">
+          <div className="sticky top-0 z-50">
+            <Navbar links={links} />
+            <ClusterChecker>
+              <AccountChecker />
+            </ClusterChecker>
+          </div>
+          <main className="flex-1 px-8 py-8">
           <Suspense
             fallback={
               <div className="text-center my-32">

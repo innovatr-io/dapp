@@ -157,14 +157,14 @@ export function UiLayout({
             </div>
           </div>
         </aside>
-        <div className="flex-1 lg:ml-64 ml-0 transition-all duration-300 flex flex-col min-h-screen">
+        <div className="flex-1 lg:pl-64 flex flex-col min-h-screen">
           <div className="sticky top-0 z-50">
             <Navbar links={links} />
             <ClusterChecker>
               <AccountChecker />
             </ClusterChecker>
           </div>
-          <main className="flex-1 p-4 lg:p-8 w-full overflow-x-hidden">
+          <main className="flex-1 p-4 lg:p-8 w-full max-w-full overflow-x-hidden">
           <Suspense
             fallback={
               <div className="text-center my-32">

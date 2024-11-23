@@ -25,7 +25,7 @@ export function MarketUi({
    <FeaturedProjects projects={projects} />
 
    <h2 className="text-2xl font-bold">All Projects</h2>
-   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-full">
     {projects.map((project) => (
      <ProjectCard key={project.id} project={project} />
     ))}

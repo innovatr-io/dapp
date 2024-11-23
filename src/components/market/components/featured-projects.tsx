@@ -61,14 +61,18 @@ export function FeaturedProjects({ projects }: { projects: Project[] }) {
           </div>
         </div>
       </div>
-      <div id="featured-carousel" className="carousel rounded-box relative group overflow-hidden">
-        <div className="absolute inset-y-0 left-0 bg-gradient-to-r from-base-100 to-transparent w-12 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
-        {featuredProjects.map((project) => (
-          <div key={project.id} className="carousel-item w-[calc(100%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] px-2">
-            <ProjectCard project={project} featured />
+      <div className="relative">
+        <div id="featured-carousel" className="carousel rounded-box relative group overflow-hidden">
+          <div className="absolute inset-y-0 left-0 bg-gradient-to-r from-base-100 to-transparent w-12 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="flex gap-4">
+            {featuredProjects.map((project) => (
+              <div key={project.id} className="carousel-item w-full sm:w-[calc(100%-2rem)] md:w-[calc(50%-2rem)] lg:w-[calc(33.333%-2rem)]">
+                <ProjectCard project={project} featured />
+              </div>
+            ))}
           </div>
-        ))}
-        <div className="absolute inset-y-0 right-0 bg-gradient-to-l from-base-100 to-transparent w-12 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <div className="absolute inset-y-0 right-0 bg-gradient-to-l from-base-100 to-transparent w-12 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        </div>
       </div>
     </div>
   ) : null

@@ -52,15 +52,64 @@ const MOCK_PROJECTS: Project[] = [
       {
         id: '2',
         investor: '4Kj9...8Mnb',
-        amount: 5,
+        amount: 500,
         date: new Date('2024-03-14'),
         status: 'completed'
       },
       {
         id: '3',
         investor: '2Wsx...7Vfr',
-        amount: 15,
+        amount: 750,
         date: new Date('2024-03-13'),
+        status: 'completed'
+      },
+      {
+        id: '4',
+        investor: '9Plm...2Qaz',
+        amount: 1200,
+        date: new Date('2024-03-12'),
+        status: 'completed'
+      },
+      {
+        id: '5',
+        investor: '5Tgb...8Uhb',
+        amount: 300,
+        date: new Date('2024-03-11'),
+        status: 'pending'
+      },
+      {
+        id: '6',
+        investor: '1Qaz...4Rfv',
+        amount: 800,
+        date: new Date('2024-03-10'),
+        status: 'completed'
+      },
+      {
+        id: '7',
+        investor: '3Edc...6Yhn',
+        amount: 450,
+        date: new Date('2024-03-09'),
+        status: 'completed'
+      },
+      {
+        id: '8',
+        investor: '8Ijk...0Plm',
+        amount: 600,
+        date: new Date('2024-03-08'),
+        status: 'pending'
+      },
+      {
+        id: '9',
+        investor: '6Yhn...1Qaz',
+        amount: 250,
+        date: new Date('2024-03-07'),
+        status: 'completed'
+      },
+      {
+        id: '10',
+        investor: '2Wsx...9Okm',
+        amount: 650,
+        date: new Date('2024-03-06'),
         status: 'completed'
       }
     ]

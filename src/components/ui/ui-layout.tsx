@@ -7,7 +7,6 @@ import { FacebookIcon } from "./icons/facebook-icon";
 import { TwitterIcon } from "./icons/twitter-icon";
 import { TelegramIcon } from "./icons/telegram-icon";
 import { InstagramIcon } from "./icons/instagram-icon";
-import Link from "next/link";
 import toast, { Toaster } from "react-hot-toast";
 import { AccountChecker } from "../account/account-ui";
 import { ClusterChecker, ExplorerLink } from "../cluster/cluster-ui";

@@ -114,8 +114,8 @@ export function MarketUi({ projects, loading }: { projects: Project[]; loading: 
   return (
     <div className="flex flex-col gap-8">
       <AppHero
-        title="Music Project Market"
-        subtitle="Invest in your favorite artists and be part of their success story"
+        title="The Stage"
+        subtitle="Where artists showcase their dreams and fans become part of the journey"
       />
       
       <MarketHeader />

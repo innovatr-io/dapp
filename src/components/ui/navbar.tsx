@@ -12,7 +12,7 @@ export function Navbar({ links }: { links: { label: string; path: string }[] }) 
   return (
     <div className="navbar bg-base-300 text-neutral-content flex-col md:flex-row space-y-2 md:space-y-0">
       <div className="flex-1">
-        <Link className="btn btn-ghost normal-case text-xl" href="/">
+        <Link className="btn btn-ghost normal-case text-xl text-white" href="/">
           <InnovatrLogo className="h-4 md:h-6" />
         </Link>
         <ul className="menu menu-horizontal px-1 space-x-2">

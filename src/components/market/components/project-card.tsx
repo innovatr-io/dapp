@@ -7,8 +7,8 @@ export function ProjectCard({ project, featured }: { project: Project; featured?
   const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24))
 
   return (
-    <div className={`card bg-base-200 shadow-xl w-full ${featured ? 'border-2 border-primary' : ''}`}>
-      <figure className="px-4 pt-4 relative h-52">
+    <div className={`card bg-base-200 shadow-xl w-full h-full flex flex-col ${featured ? 'border-2 border-primary' : ''}`}>
+      <figure className="px-4 pt-4 relative h-52 flex-shrink-0">
         <Image
           src={project.imageUrl}
           alt={project.title}
@@ -22,13 +22,15 @@ export function ProjectCard({ project, featured }: { project: Project; featured?
           <div className="absolute top-6 left-6 badge badge-secondary">Trending</div>
         )}
       </figure>
-      <div className="card-body">
-        <div className="flex items-center gap-2">
-          <h2 className="card-title flex-1">{project.title}</h2>
-          <div className="badge badge-outline">{project.category}</div>
+      <div className="card-body flex flex-col justify-between flex-grow">
+        <div className="space-y-2">
+          <h2 className="card-title text-lg line-clamp-1">{project.title}</h2>
+          <div className="flex items-center gap-2 flex-wrap">
+            <div className="badge badge-outline">{project.category}</div>
+            <p className="text-sm text-base-content/70">by {project.artist}</p>
+          </div>
+          <p className="text-sm text-base-content/70 line-clamp-3">{project.description}</p>
         </div>
-        <p className="text-sm">{project.artist}</p>
-        <p className="text-sm text-base-content/70 line-clamp-2">{project.description}</p>
         
         <div className="flex justify-between items-center text-sm mt-2">
           <span>Goal: ${project.goal.toLocaleString()}</span>

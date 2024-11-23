@@ -89,6 +89,40 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
           </div>
         </div>
       </div>
+
+      <div className="mt-8">
+        <h2 className="text-2xl font-bold mb-4">Investment History</h2>
+        <div className="overflow-x-auto">
+          <table className="table">
+            <thead>
+              <tr>
+                <th>Investor</th>
+                <th>Amount (SOL)</th>
+                <th>Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {project.investments?.map((investment) => (
+                <tr key={investment.id}>
+                  <td>{investment.investor}</td>
+                  <td>{investment.amount}</td>
+                  <td>{new Date(investment.date).toLocaleDateString()}</td>
+                  <td>
+                    <div className={`badge ${
+                      investment.status === 'completed' 
+                        ? 'badge-success' 
+                        : 'badge-warning'
+                    }`}>
+                      {investment.status}
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   )
 }

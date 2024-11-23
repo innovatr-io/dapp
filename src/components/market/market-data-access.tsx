@@ -1,5 +1,13 @@
 import { useState, useEffect } from 'react'
 
+export interface Investment {
+  id: string
+  investor: string
+  amount: number
+  date: Date
+  status: 'completed' | 'pending'
+}
+
 export interface Project {
   id: string
   title: string
@@ -14,6 +22,7 @@ export interface Project {
   verified: boolean
   trending?: boolean
   featured?: boolean
+  investments: Investment[]
 }
 
 // This is temporary mock data - will be replaced with actual blockchain data
@@ -31,7 +40,30 @@ const MOCK_PROJECTS: Project[] = [
     backers: 156,
     verified: true,
     trending: true,
-    featured: true
+    featured: true,
+    investments: [
+      {
+        id: '1',
+        investor: '7X8y...3Pqr',
+        amount: 10,
+        date: new Date('2024-03-15'),
+        status: 'completed'
+      },
+      {
+        id: '2',
+        investor: '4Kj9...8Mnb',
+        amount: 5,
+        date: new Date('2024-03-14'),
+        status: 'completed'
+      },
+      {
+        id: '3',
+        investor: '2Wsx...7Vfr',
+        amount: 15,
+        date: new Date('2024-03-13'),
+        status: 'completed'
+      }
+    ]
   },
   {
     id: '2',

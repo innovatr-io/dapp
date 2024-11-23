@@ -164,7 +164,7 @@ export function UiLayout({
               <AccountChecker />
             </ClusterChecker>
           </div>
-          <main className="flex-1 p-4 lg:p-8 max-w-[100vw-16rem] lg:max-w-[calc(100vw-16rem)]">
+          <main className="flex-1 p-4 lg:p-8 max-w-[calc(100vw-1rem)] lg:max-w-[calc(100vw-16rem)]">
           <Suspense
             fallback={
               <div className="text-center my-32">

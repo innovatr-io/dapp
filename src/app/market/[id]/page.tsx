@@ -106,6 +106,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                 <tr>
                   <th className="font-bold">Investor</th>
                   <th className="font-bold">Amount (USD)</th>
+                  <th className="font-bold">Share %</th>
                   <th className="font-bold">Date</th>
                   <th className="font-bold">Status</th>
                 </tr>
@@ -115,6 +116,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                   <tr key={investment.id} className="hover:bg-base-300 transition-colors">
                     <td className="font-medium">{investment.investor}</td>
                     <td className="font-medium">${investment.amount.toLocaleString()}</td>
+                    <td>{((investment.amount / project.raised) * 100).toFixed(2)}%</td>
                     <td>{new Date(investment.date).toLocaleDateString()}</td>
                     <td>
                       <div className={`badge ${

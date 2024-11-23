@@ -31,7 +31,18 @@ const config: Config = {
  },
  plugins: [daisyui],
  daisyui: {
-  themes: ["light", "dark"],
+  themes: [
+    {
+      light: {
+        ...require("daisyui/src/theming/themes")["light"],
+        "base-200": "#1B1E36", // Using your cosmos primary color
+      },
+      dark: {
+        ...require("daisyui/src/theming/themes")["dark"],
+        "base-200": "#1B1E36", // Using your cosmos primary color
+      }
+    }
+  ],
  },
 };
 

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Project } from '../market-data-access'
 
 export function ProjectCard({ project, featured }: { project: Project; featured?: boolean }) {
@@ -45,7 +46,9 @@ export function ProjectCard({ project, featured }: { project: Project; featured?
         </div>
         
         <div className="card-actions justify-end mt-4">
-          <button className="btn btn-primary btn-sm">Learn More</button>
+          <Link href={`/market/${project.id}`} className="btn btn-primary btn-sm">
+            Learn More
+          </Link>
           <button className="btn btn-secondary btn-sm">Invest</button>
         </div>
       </div>

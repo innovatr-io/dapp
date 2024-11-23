@@ -34,7 +34,7 @@ export function UiLayout({
               {collapsed ? '→' : '←'}
             </button>
             <nav className={`flex-1 ${collapsed ? 'hidden' : ''}`}>
-              <ul className="menu menu-vertical w-full">
+              <ul className="menu menu-vertical w-full mt-8">
                 <li className="menu-title">Navigation</li>
                 <li>
                   <Link href="/market" className={pathname === "/market" ? "active" : ""}>

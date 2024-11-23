@@ -52,7 +52,7 @@ export default function InnovatrFeature() {
             <div className="card bg-base-200">
               <div className="card-body">
                 <h3 className="card-title">Verification Process</h3>
-                <ul className="list-disc list-inside space-y-2">
+                <ul className="list-disc list-inside space-y-2 text-left">
                   <li>Submit artist/band information</li>
                   <li>Provide proof of identity</li>
                   <li>Link existing music profiles</li>

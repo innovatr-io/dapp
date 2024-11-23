@@ -19,13 +19,8 @@ export function UiLayout({
   const pathname = usePathname();
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <Navbar links={links} />
-      <ClusterChecker>
-        <AccountChecker />
-      </ClusterChecker>
-      <div className="flex flex-1">
-        <aside className="w-64 bg-base-200 p-4 rounded-lg h-[calc(100vh-96px)] fixed top-24 left-4 overflow-y-auto">
+    <div className="min-h-screen flex">
+      <aside className="w-64 bg-base-200 p-4 h-screen fixed left-0 overflow-y-auto border-r border-base-300">
           <nav>
             <ul className="menu menu-vertical w-full">
               <li className="menu-title">Account</li>
@@ -83,7 +78,12 @@ export function UiLayout({
             </ul>
           </nav>
         </aside>
-        <main className="flex-1 ml-72 mr-4 lg:mr-8 pb-16 mt-24">
+        <div className="flex-1 ml-64 flex flex-col min-h-screen">
+          <Navbar links={links} />
+          <ClusterChecker>
+            <AccountChecker />
+          </ClusterChecker>
+          <main className="flex-1 px-8 py-24">
           <Suspense
             fallback={
               <div className="text-center my-32">
@@ -93,10 +93,10 @@ export function UiLayout({
           >
             {children}
           </Suspense>
-          <Toaster position="bottom-right" />
-        </main>
-      </div>
-      <Footer />
+            <Toaster position="bottom-right" />
+          </main>
+          <Footer />
+        </div>
     </div>
   );
 }

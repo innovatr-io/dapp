@@ -1,6 +1,7 @@
 "use client";
 
-import { ReactNode, Suspense, useState } from "react";
+import { ReactNode, Suspense, useState, useEffect } from "react";
+import { Menu } from 'lucide-react';
 import { useWallet } from '@solana/wallet-adapter-react';
 import Link from "next/link";
 import InnovatrLogo from "./innovatr-logo";
@@ -23,11 +24,50 @@ export function UiLayout({
 }) {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [mobileOpen]);
   const { publicKey } = useWallet();
 
   return (
     <div className="min-h-screen flex">
-      <aside className={`${collapsed ? 'w-16' : 'w-64'} transition-all duration-300 bg-base-200 p-4 h-screen fixed left-0 overflow-y-auto border-r border-base-300`}>
+      {/* Mobile Hamburger */}
+      <button 
+        onClick={() => setMobileOpen(true)}
+        className="lg:hidden fixed top-4 left-4 z-50 btn btn-circle btn-ghost"
+      >
+        <Menu className="h-6 w-6" />
+      </button>
+
+      {/* Mobile Overlay */}
+      {mobileOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          onClick={() => setMobileOpen(false)}
+        />
+      )}
+
+      <aside className={`
+        ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}
+        ${collapsed ? 'w-16' : 'w-64'}
+        transition-all duration-300 
+        bg-base-200 
+        p-4 
+        h-screen 
+        fixed 
+        left-0 
+        overflow-y-auto 
+        border-r 
+        border-base-300
+        z-50
+        lg:translate-x-0
+      `}>
           <div className="flex flex-col h-full relative">
           <Link href="/" className="flex px-4 mb-6">
                   <InnovatrLogo className={collapsed ? "h-6" : "h-8"} />
@@ -124,7 +164,16 @@ export function UiLayout({
             </div>
           </div>
         </aside>
-        <div className={`flex-1 ${collapsed ? 'ml-16' : 'ml-64'} transition-all duration-300 flex flex-col min-h-screen`}>
+        <div className={`
+          flex-1 
+          ${collapsed ? 'lg:ml-16' : 'lg:ml-64'} 
+          ml-0
+          transition-all 
+          duration-300 
+          flex 
+          flex-col 
+          min-h-screen
+        `}>
           <div className="sticky top-0 z-50">
             <Navbar links={links} />
             <ClusterChecker>

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 export interface Investment {
   id: string
   investor: string
-  amount: number
+  amount: number  // Amount in USD
   date: Date
   status: 'completed' | 'pending'
 }
@@ -33,8 +33,8 @@ const MOCK_PROJECTS: Project[] = [
     artist: 'Sarah Blake',
     description: 'A fusion of jazz and electronic music pushing boundaries.',
     imageUrl: 'https://picsum.photos/seed/album1/400/300',
-    goal: 100,
-    raised: 65,
+    goal: 10000,
+    raised: 6500,
     category: 'Album',
     endDate: new Date('2024-12-31'),
     backers: 156,
@@ -45,7 +45,7 @@ const MOCK_PROJECTS: Project[] = [
       {
         id: '1',
         investor: '7X8y...3Pqr',
-        amount: 10,
+        amount: 1000,
         date: new Date('2024-03-15'),
         status: 'completed'
       },

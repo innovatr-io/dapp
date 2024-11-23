@@ -58,11 +58,11 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
             <div className="stats shadow">
               <div className="stat">
                 <div className="stat-title">Goal</div>
-                <div className="stat-value text-primary">{project.goal} SOL</div>
+                <div className="stat-value text-primary">${project.goal.toLocaleString()}</div>
               </div>
               <div className="stat">
                 <div className="stat-title">Raised</div>
-                <div className="stat-value text-secondary">{project.raised} SOL</div>
+                <div className="stat-value text-secondary">${project.raised.toLocaleString()}</div>
               </div>
             </div>
             
@@ -97,7 +97,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
             <thead>
               <tr>
                 <th>Investor</th>
-                <th>Amount (SOL)</th>
+                <th>Amount (USD)</th>
                 <th>Date</th>
                 <th>Status</th>
               </tr>
@@ -106,7 +106,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
               {project.investments?.map((investment) => (
                 <tr key={investment.id}>
                   <td>{investment.investor}</td>
-                  <td>{investment.amount}</td>
+                  <td>${investment.amount.toLocaleString()}</td>
                   <td>{new Date(investment.date).toLocaleDateString()}</td>
                   <td>
                     <div className={`badge ${

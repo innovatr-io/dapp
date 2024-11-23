@@ -31,8 +31,8 @@ export function ProjectCard({ project, featured }: { project: Project; featured?
         <p className="text-sm text-base-content/70 line-clamp-2">{project.description}</p>
         
         <div className="flex justify-between items-center text-sm mt-2">
-          <span>Goal: {project.goal} SOL</span>
-          <span>Raised: {project.raised} SOL</span>
+          <span>Goal: ${project.goal.toLocaleString()}</span>
+          <span>Raised: ${project.raised.toLocaleString()}</span>
         </div>
         <progress
           className="progress progress-primary"

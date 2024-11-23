@@ -27,6 +27,9 @@ export function UiLayout({
     <div className="min-h-screen flex">
       <aside className={`${collapsed ? 'w-16' : 'w-64'} transition-all duration-300 bg-base-200 p-4 h-screen fixed left-0 overflow-y-auto border-r border-base-300`}>
           <div className="flex flex-col h-full relative">
+          <Link href="/" className="flex px-4 mb-6">
+                  <InnovatrLogo className={collapsed ? "h-6" : "h-8"} />
+                </Link>
             <button 
               onClick={() => setCollapsed(!collapsed)} 
               className="btn btn-circle btn-sm absolute -right-2 top-0"
@@ -34,7 +37,7 @@ export function UiLayout({
               {collapsed ? '→' : '←'}
             </button>
             <nav className={`flex-1 ${collapsed ? 'hidden' : ''}`}>
-              <ul className="menu menu-vertical w-full mt-8">
+              <ul className="menu menu-vertical w-full">
                 <li className="menu-title">Navigation</li>
                 <li>
                   <Link href="/market" className={pathname === "/market" ? "active" : ""}>
@@ -91,9 +94,7 @@ export function UiLayout({
             </nav>
             <div className={`mt-auto border-t border-base-300 pt-4 ${collapsed ? 'hidden' : ''}`}>
               <div>
-                <Link href="/" className="flex px-4 mb-6">
-                  <InnovatrLogo className={collapsed ? "h-6" : "h-8"} />
-                </Link>
+    
                 <h3 className="text-lg font-semibold mb-2">Contact</h3>
                 <p className="text-sm text-base-content/70 mb-4">innovate@innovatr.io</p>
                 <h3 className="text-lg font-semibold mb-2">Follow Us</h3>

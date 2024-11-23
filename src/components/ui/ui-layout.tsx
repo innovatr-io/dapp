@@ -40,7 +40,7 @@ export function UiLayout({
       {/* Mobile Hamburger */}
       <button 
         onClick={() => setMobileOpen(true)}
-        className="lg:hidden fixed top-4 left-4 z-50 btn btn-circle btn-ghost"
+        className="lg:hidden fixed top-4 left-4 z-[60] btn btn-circle btn-ghost"
       >
         <Menu className="h-6 w-6" />
       </button>
@@ -48,7 +48,7 @@ export function UiLayout({
       {/* Mobile Overlay */}
       {mobileOpen && (
         <div 
-          className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+          className="fixed inset-0 bg-black/50 z-[55] lg:hidden"
           onClick={() => setMobileOpen(false)}
         />
       )}
@@ -65,7 +65,7 @@ export function UiLayout({
         overflow-y-auto 
         border-r 
         border-base-300
-        z-50
+        z-[55]
         lg:translate-x-0
       `}>
           <div className="flex flex-col h-full relative">

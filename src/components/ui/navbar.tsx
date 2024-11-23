@@ -10,7 +10,7 @@ export function Navbar({ links }: { links: { label: string; path: string }[] }) 
   const pathname = usePathname()
 
   return (
-    <div className="navbar bg-base-300/30 backdrop-blur-sm text-neutral-content flex-col md:flex-row space-y-2 md:space-y-0 border-b border-gradient-to-r from-transparent via-primary to-transparent">
+    <div className="navbar bg-base-300/30 backdrop-blur-sm text-neutral-content flex-col md:flex-row space-y-2 md:space-y-0 border-b border-gradient-to-r from-transparent via-primary to-transparent z-40">
       <div className="flex-1">
         <ul className="menu menu-horizontal px-1 space-x-2">
           {links.map(({ label, path }) => (

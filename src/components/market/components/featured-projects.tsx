@@ -61,10 +61,10 @@ export function FeaturedProjects({ projects }: { projects: Project[] }) {
           </div>
         </div>
       </div>
-      <div id="featured-carousel" className="carousel rounded-box relative group overflow-x-auto">
+      <div id="featured-carousel" className="carousel rounded-box relative group overflow-hidden">
         <div className="absolute inset-y-0 left-0 bg-gradient-to-r from-base-100 to-transparent w-12 z-10 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"></div>
         {featuredProjects.map((project) => (
-          <div key={project.id} className="carousel-item w-full md:w-1/2 lg:w-1/3 px-2">
+          <div key={project.id} className="carousel-item w-[calc(100%-1rem)] md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1rem)] px-2">
             <ProjectCard project={project} featured />
           </div>
         ))}

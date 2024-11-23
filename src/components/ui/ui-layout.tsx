@@ -76,7 +76,7 @@ export function UiLayout({
                 <li className="menu-title">Navigation</li>
                 <li>
                   <Link href="/market" className={pathname === "/market" ? "active" : ""}>
-                    Investment Market
+                    Market
                   </Link>
                 </li>
                 <li>

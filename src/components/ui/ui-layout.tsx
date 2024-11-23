@@ -81,14 +81,6 @@ export function UiLayout({
                 </li>
                 <li>
                   <Link
-                    href="/clusters"
-                    className={pathname === "/clusters" ? "active" : ""}
-                  >
-                    Clusters
-                  </Link>
-                </li>
-                <li>
-                  <Link
                     href="/innovatr"
                     className={pathname === "/innovatr" ? "active" : ""}
                   >

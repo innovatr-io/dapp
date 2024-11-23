@@ -1,5 +1,9 @@
 # innovatr
 
+Innovatr is a decentralized crowdfunding platform built on Solana blockchain, enabling creators and innovators to raise funds for their projects in a transparent and efficient way.
+
+🌐 [Live Demo](https://dapp-chi-lime.vercel.app/)
+
 ## Getting Started
 
 ### Prerequisites

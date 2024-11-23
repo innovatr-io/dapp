@@ -12,7 +12,7 @@ export default function InnovatrFeature() {
   const { programId } = useInnovatrProgram()
 
   return publicKey ? (
-    <div className="max-w-4xl mx-auto px-4">
+    <div className="max-w-4xl mx-auto">
       <AppHero
         title="Artist Verification Program"
         subtitle={

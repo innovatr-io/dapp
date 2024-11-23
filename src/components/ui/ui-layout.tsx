@@ -25,7 +25,7 @@ export function UiLayout({
         <AccountChecker />
       </ClusterChecker>
       <div className="flex flex-1">
-        <aside className="w-64 bg-base-200 p-4 rounded-lg min-h-[calc(100vh-180px)] sticky top-24 mt-24 ml-4">
+        <aside className="w-64 bg-base-200 p-4 rounded-lg h-[calc(100vh-96px)] fixed top-24 left-4 overflow-y-auto">
           <nav>
             <ul className="menu menu-vertical w-full">
               <li className="menu-title">Account</li>
@@ -83,7 +83,7 @@ export function UiLayout({
             </ul>
           </nav>
         </aside>
-        <main className="flex-1 mx-4 lg:mx-8 pb-16 mt-24">
+        <main className="flex-1 ml-72 mr-4 lg:mr-8 pb-16 mt-24">
           <Suspense
             fallback={
               <div className="text-center my-32">

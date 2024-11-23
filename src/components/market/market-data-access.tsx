@@ -75,7 +75,7 @@ const MOCK_PROJECTS: Project[] = [
         investor: '5Tgb...8Uhb',
         amount: 300,
         date: new Date('2024-03-11'),
-        status: 'pending'
+        status: 'completed'
       },
       {
         id: '6',
@@ -96,7 +96,7 @@ const MOCK_PROJECTS: Project[] = [
         investor: '8Ijk...0Plm',
         amount: 600,
         date: new Date('2024-03-08'),
-        status: 'pending'
+        status: 'completed'
       },
       {
         id: '9',
@@ -110,7 +110,7 @@ const MOCK_PROJECTS: Project[] = [
         investor: '2Wsx...9Okm',
         amount: 650,
         date: new Date('2024-03-06'),
-        status: 'completed'
+        status: 'pending'
       }
     ]
   },

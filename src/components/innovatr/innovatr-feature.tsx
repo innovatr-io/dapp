@@ -19,69 +19,88 @@ export default function InnovatrFeature() {
           "Welcome to Innovatr's Artist Verification Program. Get verified to launch your music projects and connect with investors on our platform."
         }
       >
-        <div className="flex flex-col items-center gap-6 mt-8">
-          <div className="stats shadow">
-            <div className="stat">
-              <div className="stat-title">Your Wallet</div>
-              <div className="stat-value text-primary text-sm">
-                <ExplorerLink path={`account/${publicKey}`} label={ellipsify(publicKey.toString())} />
-              </div>
-            </div>
-            <div className="stat">
-              <div className="stat-title">Program ID</div>
-              <div className="stat-value text-secondary text-sm">
-                <ExplorerLink path={`account/${programId}`} label={ellipsify(programId.toString())} />
-              </div>
+        <div className="stats shadow">
+          <div className="stat">
+            <div className="stat-title">Your Wallet</div>
+            <div className="stat-value text-primary text-sm">
+              <ExplorerLink path={`account/${publicKey}`} label={ellipsify(publicKey.toString())} />
             </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-            <div className="card bg-base-200">
-              <div className="card-body">
-                <h3 className="card-title">Why Get Verified?</h3>
-                <ul className="list-disc list-inside space-y-2 text-left">
-                  <li>Launch fundraising projects on Innovatr</li>
-                  <li>Build trust with potential investors</li>
-                  <li>Access to platform analytics and insights</li>
-                  <li>Automated revenue distribution to investors</li>
-                  <li>Priority support and project promotion</li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="card bg-base-200">
-              <div className="card-body">
-                <h3 className="card-title">Verification Process</h3>
-                <ul className="list-disc list-inside space-y-2 text-left">
-                  <li>Submit artist/band information</li>
-                  <li>Provide proof of identity</li>
-                  <li>Link existing music profiles</li>
-                  <li>Complete blockchain basics training</li>
-                  <li>Set up secure payment distribution</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <div className="card bg-base-200 w-full">
-            <div className="card-body">
-              <h3 className="card-title">Start Verification</h3>
-              <p className="text-base-content/70 mb-4">
-                Ready to join the future of music investment? Start your verification process now.
-              </p>
-              <InnovatrCreate />
+          <div className="stat">
+            <div className="stat-title">Program ID</div>
+            <div className="stat-value text-secondary text-sm">
+              <ExplorerLink path={`account/${programId}`} label={ellipsify(programId.toString())} />
             </div>
           </div>
         </div>
       </AppHero>
-      
-      <div className="mt-12">
-        <div className="card bg-base-200 p-6">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div className="card bg-base-200">
           <div className="card-body">
-            <h2 className="card-title">Your Verification Status</h2>
-            <div className="divider"></div>
-            <InnovatrList />
+            <h2 className="card-title">Why Get Verified?</h2>
+            <ul className="list-disc list-inside space-y-2">
+              <li>Launch fundraising projects on Innovatr</li>
+              <li>Build trust with potential investors</li>
+              <li>Access to platform analytics and insights</li>
+              <li>Automated revenue distribution to investors</li>
+              <li>Priority support and project promotion</li>
+            </ul>
           </div>
+        </div>
+
+        <div className="card bg-base-200">
+          <div className="card-body">
+            <h2 className="card-title">Verification Process</h2>
+            <ul className="list-disc list-inside space-y-2">
+              <li>Submit artist/band information</li>
+              <li>Provide proof of identity</li>
+              <li>Link existing music profiles</li>
+              <li>Complete blockchain basics training</li>
+              <li>Set up secure payment distribution</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="card bg-base-200 mb-12">
+        <div className="card-body">
+          <h2 className="card-title mb-4">Verification Steps</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="text-center space-y-2">
+              <div className="text-4xl font-bold text-primary">1</div>
+              <h3 className="font-bold">Submit Info</h3>
+              <p className="text-sm">Complete the artist verification form with required details</p>
+            </div>
+            <div className="text-center space-y-2">
+              <div className="text-4xl font-bold text-primary">2</div>
+              <h3 className="font-bold">Verify</h3>
+              <p className="text-sm">Our team reviews and verifies your submission</p>
+            </div>
+            <div className="text-center space-y-2">
+              <div className="text-4xl font-bold text-primary">3</div>
+              <h3 className="font-bold">Launch</h3>
+              <p className="text-sm">Start creating and managing your music projects</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="card bg-base-200 mb-12">
+        <div className="card-body">
+          <h2 className="card-title mb-4">Start Verification</h2>
+          <p className="text-base-content/70 mb-6">
+            Ready to join the future of music investment? Start your verification process now.
+          </p>
+          <InnovatrCreate />
+        </div>
+      </div>
+
+      <div className="card bg-base-200">
+        <div className="card-body">
+          <h2 className="card-title mb-4">Your Verification Status</h2>
+          <div className="divider"></div>
+          <InnovatrList />
         </div>
       </div>
     </div>

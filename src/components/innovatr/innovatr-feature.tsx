@@ -12,7 +12,7 @@ export default function InnovatrFeature() {
   const { programId } = useInnovatrProgram()
 
   return publicKey ? (
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-4xl mx-auto px-4">
       <AppHero
         title="Artist Verification Program"
         subtitle={
@@ -35,7 +35,7 @@ export default function InnovatrFeature() {
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
             <div className="card bg-base-200">
               <div className="card-body">
                 <h3 className="card-title">Why Get Verified?</h3>
@@ -63,7 +63,7 @@ export default function InnovatrFeature() {
             </div>
           </div>
 
-          <div className="card bg-base-200 w-full max-w-4xl">
+          <div className="card bg-base-200 w-full">
             <div className="card-body">
               <h3 className="card-title">Start Verification</h3>
               <p className="text-base-content/70 mb-4">
@@ -75,8 +75,8 @@ export default function InnovatrFeature() {
         </div>
       </AppHero>
       
-      <div className="mt-12 max-w-4xl mx-auto">
-        <div className="card bg-base-200">
+      <div className="mt-12">
+        <div className="card bg-base-200 p-6">
           <div className="card-body">
             <h2 className="card-title">Your Verification Status</h2>
             <div className="divider"></div>

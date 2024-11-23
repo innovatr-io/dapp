@@ -75,9 +75,14 @@ export default function InnovatrFeature() {
         </div>
       </AppHero>
       
-      <div className="mt-12">
-        <h2 className="text-2xl font-bold mb-6">Your Verification Status</h2>
-        <InnovatrList />
+      <div className="mt-12 max-w-4xl mx-auto">
+        <div className="card bg-base-200">
+          <div className="card-body">
+            <h2 className="card-title">Your Verification Status</h2>
+            <div className="divider"></div>
+            <InnovatrList />
+          </div>
+        </div>
       </div>
     </div>
   ) : (

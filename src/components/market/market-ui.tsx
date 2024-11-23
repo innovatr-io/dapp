@@ -37,6 +37,46 @@ function MarketHeader() {
 function FeaturedProjects({ projects }: { projects: Project[] }) {
   const featuredProjects = projects.filter(p => p.featured)
   
+  useEffect(() => {
+    const carousel = document.getElementById('featured-carousel')
+    let interval: NodeJS.Timeout
+
+    const scrollNext = () => {
+      if (carousel) {
+        carousel.scrollBy({ left: 300, behavior: 'smooth' })
+      }
+    }
+
+    const checkScroll = () => {
+      if (carousel) {
+        const isAtEnd = carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 10
+        if (isAtEnd) {
+          carousel.scrollTo({ left: 0, behavior: 'smooth' })
+        }
+      }
+    }
+
+    interval = setInterval(scrollNext, 3000)
+    carousel?.addEventListener('scroll', checkScroll)
+
+    // Pause on hover
+    const pauseScroll = () => clearInterval(interval)
+    const resumeScroll = () => {
+      clearInterval(interval)
+      interval = setInterval(scrollNext, 3000)
+    }
+
+    carousel?.addEventListener('mouseenter', pauseScroll)
+    carousel?.addEventListener('mouseleave', resumeScroll)
+
+    return () => {
+      clearInterval(interval)
+      carousel?.removeEventListener('scroll', checkScroll)
+      carousel?.removeEventListener('mouseenter', pauseScroll)
+      carousel?.removeEventListener('mouseleave', resumeScroll)
+    }
+  }, [])
+
   return featuredProjects.length ? (
     <div className="mb-12">
       <div className="flex items-center justify-between mb-6">

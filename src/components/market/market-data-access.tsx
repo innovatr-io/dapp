@@ -60,6 +60,88 @@ const MOCK_PROJECTS: Project[] = [
     backers: 45,
     verified: false,
     trending: true
+  },
+  {
+    id: '4',
+    title: 'Summer Festival Tour',
+    artist: 'Cosmic Waves',
+    description: 'Join us on our nationwide summer festival tour.',
+    imageUrl: 'https://picsum.photos/seed/tour1/400/300',
+    goal: 300,
+    raised: 275,
+    category: 'Tour',
+    endDate: new Date('2024-06-01'),
+    backers: 342,
+    verified: true,
+    trending: true,
+    featured: true
+  },
+  {
+    id: '5',
+    title: 'Music Video Collection',
+    artist: 'Luna & The Stars',
+    description: 'A series of interconnected music videos telling a complete story.',
+    imageUrl: 'https://picsum.photos/seed/video1/400/300',
+    goal: 150,
+    raised: 40,
+    category: 'Music Video',
+    endDate: new Date('2024-09-15'),
+    backers: 95,
+    verified: true
+  },
+  {
+    id: '6',
+    title: 'Vinyl Special Edition',
+    artist: 'Retro Beats',
+    description: 'Limited edition vinyl release with exclusive artwork and bonus tracks.',
+    imageUrl: 'https://picsum.photos/seed/vinyl1/400/300',
+    goal: 75,
+    raised: 45,
+    category: 'Album',
+    endDate: new Date('2024-08-30'),
+    backers: 120,
+    verified: false
+  },
+  {
+    id: '7',
+    title: 'Interactive Concert Experience',
+    artist: 'Tech Harmony',
+    description: 'Revolutionary concert combining live music with AR technology.',
+    imageUrl: 'https://picsum.photos/seed/concert1/400/300',
+    goal: 500,
+    raised: 125,
+    category: 'Tour',
+    endDate: new Date('2024-11-15'),
+    backers: 180,
+    verified: true,
+    trending: true
+  },
+  {
+    id: '8',
+    title: 'Acoustic Sessions',
+    artist: 'Mountain Echo',
+    description: 'Intimate acoustic recordings in unique natural locations.',
+    imageUrl: 'https://picsum.photos/seed/acoustic1/400/300',
+    goal: 80,
+    raised: 60,
+    category: 'EP',
+    endDate: new Date('2024-07-20'),
+    backers: 145,
+    verified: true
+  },
+  {
+    id: '9',
+    title: 'Collaboration Album',
+    artist: 'Global Fusion Collective',
+    description: 'A collaborative album featuring artists from 12 different countries.',
+    imageUrl: 'https://picsum.photos/seed/collab1/400/300',
+    goal: 250,
+    raised: 200,
+    category: 'Album',
+    endDate: new Date('2024-10-01'),
+    backers: 278,
+    verified: true,
+    featured: true
   }
 ]
 

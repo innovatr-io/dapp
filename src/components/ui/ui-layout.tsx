@@ -1,6 +1,8 @@
 "use client";
 
 import { ReactNode, Suspense } from "react";
+import Link from "next/link";
+import InnovatrLogo from "./innovatr-logo";
 import { FacebookIcon } from "./icons/facebook-icon";
 import { TwitterIcon } from "./icons/twitter-icon";
 import { TelegramIcon } from "./icons/telegram-icon";
@@ -25,6 +27,11 @@ export function UiLayout({
     <div className="min-h-screen flex">
       <aside className="w-64 bg-base-200 p-4 h-screen fixed left-0 overflow-y-auto border-r border-base-300">
           <div className="flex flex-col h-full">
+            <div className="mb-6">
+              <Link href="/" className="flex justify-center">
+                <InnovatrLogo className="h-8" />
+              </Link>
+            </div>
             <nav className="flex-1">
               <ul className="menu menu-vertical w-full">
                 <li className="menu-title">Navigation</li>

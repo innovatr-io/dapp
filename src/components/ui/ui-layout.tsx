@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, Suspense, useState } from "react";
+import { useWallet } from '@solana/wallet-adapter-react';
 import Link from "next/link";
 import InnovatrLogo from "./innovatr-logo";
 import { FacebookIcon } from "./icons/facebook-icon";
@@ -22,6 +23,7 @@ export function UiLayout({
 }) {
   const pathname = usePathname();
   const [collapsed, setCollapsed] = useState(false);
+  const { publicKey } = useWallet();
 
   return (
     <div className="min-h-screen flex">
@@ -66,26 +68,29 @@ export function UiLayout({
                     Overview
                   </Link>
                 </li>
-                <li>
+                <li className={!publicKey ? "disabled" : ""}>
                   <Link
-                    href="/account/projects"
-                    className={pathname === "/account/projects" ? "active" : ""}
+                    href={publicKey ? "/account/projects" : "#"}
+                    className={`${pathname === "/account/projects" ? "active" : ""} ${!publicKey ? "cursor-not-allowed opacity-50" : ""}`}
+                    onClick={(e) => !publicKey && e.preventDefault()}
                   >
                     Projects
                   </Link>
                 </li>
-                <li>
+                <li className={!publicKey ? "disabled" : ""}>
                   <Link
-                    href="/account/investments"
-                    className={pathname === "/account/investments" ? "active" : ""}
+                    href={publicKey ? "/account/investments" : "#"}
+                    className={`${pathname === "/account/investments" ? "active" : ""} ${!publicKey ? "cursor-not-allowed opacity-50" : ""}`}
+                    onClick={(e) => !publicKey && e.preventDefault()}
                   >
                     Investments
                   </Link>
                 </li>
-                <li>
+                <li className={!publicKey ? "disabled" : ""}>
                   <Link
-                    href="/account/settings"
-                    className={pathname === "/account/settings" ? "active" : ""}
+                    href={publicKey ? "/account/settings" : "#"}
+                    className={`${pathname === "/account/settings" ? "active" : ""} ${!publicKey ? "cursor-not-allowed opacity-50" : ""}`}
+                    onClick={(e) => !publicKey && e.preventDefault()}
                   >
                     Settings
                   </Link>

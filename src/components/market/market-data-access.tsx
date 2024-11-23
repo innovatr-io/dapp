@@ -8,6 +8,12 @@ export interface Project {
   imageUrl: string
   goal: number
   raised: number
+  category: string
+  endDate: Date
+  backers: number
+  verified: boolean
+  trending?: boolean
+  featured?: boolean
 }
 
 // This is temporary mock data - will be replaced with actual blockchain data
@@ -20,6 +26,12 @@ const MOCK_PROJECTS: Project[] = [
     imageUrl: 'https://picsum.photos/seed/album1/400/300',
     goal: 100,
     raised: 65,
+    category: 'Album',
+    endDate: new Date('2024-12-31'),
+    backers: 156,
+    verified: true,
+    trending: true,
+    featured: true
   },
   {
     id: '2',
@@ -29,6 +41,11 @@ const MOCK_PROJECTS: Project[] = [
     imageUrl: 'https://picsum.photos/seed/album2/400/300',
     goal: 200,
     raised: 120,
+    category: 'Documentary',
+    endDate: new Date('2024-11-30'),
+    backers: 89,
+    verified: true,
+    featured: true
   },
   {
     id: '3',
@@ -38,7 +55,12 @@ const MOCK_PROJECTS: Project[] = [
     imageUrl: 'https://picsum.photos/seed/album3/400/300',
     goal: 50,
     raised: 30,
-  },
+    category: 'EP',
+    endDate: new Date('2024-10-15'),
+    backers: 45,
+    verified: false,
+    trending: true
+  }
 ]
 
 export function useMarket() {

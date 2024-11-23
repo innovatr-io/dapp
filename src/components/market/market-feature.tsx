@@ -3,7 +3,17 @@ import { MarketUi } from './market-ui'
 import { useMarket } from './market-data-access'
 
 export function MarketFeature() {
-  const { projects, loading, currentPage, totalPages, setCurrentPage, allProjects } = useMarket()
+  const { 
+    projects, 
+    loading, 
+    currentPage, 
+    totalPages, 
+    setCurrentPage, 
+    allProjects,
+    projectsPerPage,
+    onProjectsPerPageChange,
+    totalProjects,
+  } = useMarket()
 
   return (
     <MarketUi 
@@ -13,6 +23,9 @@ export function MarketFeature() {
       totalPages={totalPages}
       setCurrentPage={setCurrentPage}
       allProjects={allProjects}
+      projectsPerPage={projectsPerPage}
+      onProjectsPerPageChange={onProjectsPerPageChange}
+      totalProjects={totalProjects}
     />
   )
 }

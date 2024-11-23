@@ -197,7 +197,7 @@ export function useMarket() {
  const [projects, setProjects] = useState<Project[]>([]);
  const [loading, setLoading] = useState(true);
  const [currentPage, setCurrentPage] = useState(1);
- const projectsPerPage = 9;
+ const [projectsPerPage, setProjectsPerPage] = useState(9);
 
  useEffect(() => {
   // Simulate API call
@@ -225,5 +225,8 @@ export function useMarket() {
   totalPages,
   setCurrentPage,
   allProjects: projects, // For featured projects
+  projectsPerPage,
+  onProjectsPerPageChange: setProjectsPerPage,
+  totalProjects: projects.length,
  };
 }

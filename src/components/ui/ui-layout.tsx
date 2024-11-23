@@ -90,8 +90,8 @@ export function UiLayout({
               </ul>
             </nav>
             <div className={`mt-auto border-t border-base-300 pt-4 ${collapsed ? 'hidden' : ''}`}>
-              <div className="px-4">
-                <Link href="/" className="flex justify-center mb-6">
+              <div>
+                <Link href="/" className="flex px-4 mb-6">
                   <InnovatrLogo className={collapsed ? "h-6" : "h-8"} />
                 </Link>
                 <h3 className="text-lg font-semibold mb-2">Contact</h3>

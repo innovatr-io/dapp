@@ -94,7 +94,7 @@ export default function InnovatrFeature() {
         <div className="flex flex-col items-center gap-4">
           <WalletButton />
           <p className="text-sm text-base-content/70">
-            New to crypto? Don't worry - we'll guide you through every step of the process.
+            New to crypto? Don&apos;t worry - we&apos;ll guide you through every step of the process.
           </p>
         </div>
       </AppHero>

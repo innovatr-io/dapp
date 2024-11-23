@@ -12,27 +12,87 @@ export default function InnovatrFeature() {
   const { programId } = useInnovatrProgram()
 
   return publicKey ? (
-    <div>
+    <div className="max-w-6xl mx-auto">
       <AppHero
-        title="Innovatr"
+        title="Artist Verification Program"
         subtitle={
-          'Create a new account by clicking the "Create" button. The state of a account is stored on-chain and can be manipulated by calling the program\'s methods (increment, decrement, set, and close).'
+          "Welcome to Innovatr's Artist Verification Program. Get verified to launch your music projects and connect with investors on our platform."
         }
       >
-        <p className="mb-6">
-          <ExplorerLink path={`account/${programId}`} label={ellipsify(programId.toString())} />
-        </p>
-        <InnovatrCreate />
+        <div className="flex flex-col items-center gap-6 mt-8">
+          <div className="stats shadow">
+            <div className="stat">
+              <div className="stat-title">Your Wallet</div>
+              <div className="stat-value text-primary text-sm">
+                <ExplorerLink path={`account/${publicKey}`} label={ellipsify(publicKey.toString())} />
+              </div>
+            </div>
+            <div className="stat">
+              <div className="stat-title">Program ID</div>
+              <div className="stat-value text-secondary text-sm">
+                <ExplorerLink path={`account/${programId}`} label={ellipsify(programId.toString())} />
+              </div>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl">
+            <div className="card bg-base-200">
+              <div className="card-body">
+                <h3 className="card-title">Why Get Verified?</h3>
+                <ul className="list-disc list-inside space-y-2">
+                  <li>Launch fundraising projects on Innovatr</li>
+                  <li>Build trust with potential investors</li>
+                  <li>Access to platform analytics and insights</li>
+                  <li>Automated revenue distribution to investors</li>
+                  <li>Priority support and project promotion</li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="card bg-base-200">
+              <div className="card-body">
+                <h3 className="card-title">Verification Process</h3>
+                <ul className="list-disc list-inside space-y-2">
+                  <li>Submit artist/band information</li>
+                  <li>Provide proof of identity</li>
+                  <li>Link existing music profiles</li>
+                  <li>Complete blockchain basics training</li>
+                  <li>Set up secure payment distribution</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div className="card bg-base-200 w-full max-w-4xl">
+            <div className="card-body">
+              <h3 className="card-title">Start Verification</h3>
+              <p className="text-base-content/70 mb-4">
+                Ready to join the future of music investment? Start your verification process now.
+              </p>
+              <InnovatrCreate />
+            </div>
+          </div>
+        </div>
       </AppHero>
-      <InnovatrList />
+      
+      <div className="mt-12">
+        <h2 className="text-2xl font-bold mb-6">Your Verification Status</h2>
+        <InnovatrList />
+      </div>
     </div>
   ) : (
     <div className="max-w-4xl mx-auto">
-      <div className="hero py-[64px]">
-        <div className="hero-content text-center">
+      <AppHero
+        title="Connect Your Wallet"
+        subtitle="Connect your wallet to start the artist verification process and join the Innovatr platform."
+      >
+        <div className="flex flex-col items-center gap-4">
           <WalletButton />
+          <p className="text-sm text-base-content/70">
+            New to crypto? Don't worry - we'll guide you through every step of the process.
+          </p>
         </div>
-      </div>
+      </AppHero>
     </div>
   )
 }

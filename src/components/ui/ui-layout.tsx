@@ -10,51 +10,13 @@ import { Footer } from "./footer";
 import { usePathname } from "next/navigation";
 
 export function UiLayout({
- children,
- links,
+  children,
+  links,
 }: {
- children: ReactNode;
- links: { label: string; path: string }[];
+  children: ReactNode;
+  links: { label: string; path: string }[];
 }) {
- const pathname = usePathname();
-
- const AccountSidebar = () => (
-  <aside className="w-64 bg-base-200 p-4 rounded-lg h-[calc(100vh-180px)] sticky top-24">
-   <nav>
-    <ul className="menu menu-vertical w-full">
-     <li>
-      <Link href="/account" className={pathname === "/account" ? "active" : ""}>
-       Overview
-      </Link>
-     </li>
-     <li>
-      <Link
-       href="/account/projects"
-       className={pathname === "/account/projects" ? "active" : ""}
-      >
-       Projects
-      </Link>
-     </li>
-     <li>
-      <Link
-       href="/account/investments"
-       className={pathname === "/account/investments" ? "active" : ""}
-      >
-       Investments
-      </Link>
-     </li>
-     <li>
-      <Link
-       href="/account/settings"
-       className={pathname === "/account/settings" ? "active" : ""}
-      >
-       Settings
-      </Link>
-     </li>
-    </ul>
-   </nav>
-  </aside>
- );
+  const pathname = usePathname();
 
  return (
   <div className="min-h-screen flex flex-col">
@@ -62,35 +24,62 @@ export function UiLayout({
    <ClusterChecker>
     <AccountChecker />
    </ClusterChecker>
-   <main className="flex-1 mx-4 lg:mx-auto pb-16 mt-24 max-w-7xl">
-    {pathname?.startsWith("/account") ? (
-     <div className="flex gap-8">
-      <AccountSidebar />
-      <div className="flex-1">
-       <Suspense
-        fallback={
-         <div className="text-center my-32">
-          <span className="loading loading-spinner loading-lg"></span>
-         </div>
-        }
-       >
-        {children}
-       </Suspense>
-      </div>
-     </div>
-    ) : (
-     <div>
+   <div className="flex flex-1">
+    <aside className="w-64 bg-base-200 p-4 rounded-lg min-h-[calc(100vh-180px)] sticky top-24 mt-24 ml-4">
+      <nav>
+        <ul className="menu menu-vertical w-full">
+          <li className="menu-title">Account</li>
+          <li>
+            <Link href="/account" className={pathname === "/account" ? "active" : ""}>
+              Overview
+            </Link>
+          </li>
+          <li>
+            <Link href="/account/projects" className={pathname === "/account/projects" ? "active" : ""}>
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link href="/account/investments" className={pathname === "/account/investments" ? "active" : ""}>
+              Investments
+            </Link>
+          </li>
+          <li>
+            <Link href="/account/settings" className={pathname === "/account/settings" ? "active" : ""}>
+              Settings
+            </Link>
+          </li>
+          <li className="menu-title mt-4">Navigation</li>
+          <li>
+            <Link href="/market" className={pathname === "/market" ? "active" : ""}>
+              The Stage
+            </Link>
+          </li>
+          <li>
+            <Link href="/clusters" className={pathname === "/clusters" ? "active" : ""}>
+              Clusters
+            </Link>
+          </li>
+          <li>
+            <Link href="/innovatr" className={pathname === "/innovatr" ? "active" : ""}>
+              Innovatr Program
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+    <main className="flex-1 mx-4 lg:mx-8 pb-16 mt-24">
       <Suspense
-       fallback={
-        <div className="text-center my-32">
-         <span className="loading loading-spinner loading-lg"></span>
-        </div>
-       }
+        fallback={
+          <div className="text-center my-32">
+            <span className="loading loading-spinner loading-lg"></span>
+          </div>
+        }
       >
-       {children}
+        {children}
       </Suspense>
-     </div>
-    )}
+    </main>
+   </div>
     <Toaster position="bottom-right" />
    </main>
    <Footer />

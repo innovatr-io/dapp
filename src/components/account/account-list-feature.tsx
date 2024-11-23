@@ -1,7 +1,6 @@
 'use client'
 
 import { useWallet } from '@solana/wallet-adapter-react'
-
 import { redirect } from 'next/navigation'
 import { WalletButton } from '../solana/solana-provider'
 
@@ -13,10 +12,10 @@ export default function AccountListFeature() {
   }
 
   return (
-    <div className="hero py-[64px]">
-      <div className="hero-content text-center">
-        <WalletButton />
-      </div>
+    <div className="flex flex-col items-center justify-center space-y-4 py-12">
+      <h1 className="text-2xl font-bold">Connect Your Wallet</h1>
+      <p className="text-base-content/70">Connect your wallet to view your account details</p>
+      <WalletButton />
     </div>
   )
 }

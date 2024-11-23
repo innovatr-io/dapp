@@ -23,7 +23,6 @@ export function UiLayout({
   links: { label: string; path: string }[];
 }) {
   const pathname = usePathname();
-  const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -55,7 +54,7 @@ export function UiLayout({
 
       <aside className={`
         ${mobileOpen ? 'translate-x-0' : '-translate-x-full'}
-        ${collapsed ? 'w-16' : 'w-64'}
+        w-64
         transition-all duration-300 
         bg-base-200 
         p-4 
@@ -68,17 +67,11 @@ export function UiLayout({
         z-[55]
         lg:translate-x-0
       `}>
-          <div className="flex flex-col h-full relative">
-          <Link href="/" className="flex px-4 mb-6">
-                  <InnovatrLogo className={collapsed ? "h-6" : "h-8"} />
-                </Link>
-            <button 
-              onClick={() => setCollapsed(!collapsed)} 
-              className="btn btn-circle btn-sm absolute -right-2 top-0"
-            >
-              {collapsed ? '→' : '←'}
-            </button>
-            <nav className={`flex-1 ${collapsed ? 'hidden' : ''}`}>
+          <div className="flex flex-col h-full">
+            <Link href="/" className="flex px-4 mb-6">
+              <InnovatrLogo className="h-8" />
+            </Link>
+            <nav className="flex-1">
               <ul className="menu menu-vertical w-full">
                 <li className="menu-title">Navigation</li>
                 <li>
@@ -137,7 +130,7 @@ export function UiLayout({
                 </li>
               </ul>
             </nav>
-            <div className={`mt-auto border-t border-base-300 pt-4 ${collapsed ? 'hidden' : ''}`}>
+            <div className="mt-auto border-t border-base-300 pt-4">
               <div>
     
                 <h3 className="text-lg font-semibold mb-2">Contact</h3>
@@ -164,16 +157,7 @@ export function UiLayout({
             </div>
           </div>
         </aside>
-        <div className={`
-          flex-1 
-          ${collapsed ? 'lg:ml-16' : 'lg:ml-64'} 
-          ml-0
-          transition-all 
-          duration-300 
-          flex 
-          flex-col 
-          min-h-screen
-        `}>
+        <div className="flex-1 lg:ml-64 ml-0 transition-all duration-300 flex flex-col min-h-screen">
           <div className="sticky top-0 z-50">
             <Navbar links={links} />
             <ClusterChecker>

@@ -23,7 +23,29 @@ export function UiLayout({
       <aside className="w-64 bg-base-200 p-4 h-screen fixed left-0 overflow-y-auto border-r border-base-300">
           <nav>
             <ul className="menu menu-vertical w-full">
-              <li className="menu-title">Account</li>
+              <li className="menu-title">Navigation</li>
+              <li>
+                <Link href="/market" className={pathname === "/market" ? "active" : ""}>
+                  The Stage
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/clusters"
+                  className={pathname === "/clusters" ? "active" : ""}
+                >
+                  Clusters
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/innovatr"
+                  className={pathname === "/innovatr" ? "active" : ""}
+                >
+                  Innovatr Program
+                </Link>
+              </li>
+              <li className="menu-title mt-4">Account</li>
               <li>
                 <Link href="/account" className={pathname === "/account" ? "active" : ""}>
                   Overview
@@ -51,28 +73,6 @@ export function UiLayout({
                   className={pathname === "/account/settings" ? "active" : ""}
                 >
                   Settings
-                </Link>
-              </li>
-              <li className="menu-title mt-4">Navigation</li>
-              <li>
-                <Link href="/market" className={pathname === "/market" ? "active" : ""}>
-                  The Stage
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/clusters"
-                  className={pathname === "/clusters" ? "active" : ""}
-                >
-                  Clusters
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/innovatr"
-                  className={pathname === "/innovatr" ? "active" : ""}
-                >
-                  Innovatr Program
                 </Link>
               </li>
             </ul>

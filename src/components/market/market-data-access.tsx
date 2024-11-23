@@ -184,7 +184,7 @@ function generateRandomProjects(): Project[] {
    backers: investments.length,
    verified: Math.random() > 0.2, // 80% chance of being verified
    trending: Math.random() > 0.7, // 30% chance of trending
-   featured: Math.random() > 0.8, // 20% chance of being featured
+   featured: Math.random() > 0.5, // 50% chance of being featured
    investments,
   };
  });

@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode, Suspense } from "react";
+import { ReactNode, Suspense, useState } from "react";
 import Link from "next/link";
 import InnovatrLogo from "./innovatr-logo";
 import { FacebookIcon } from "./icons/facebook-icon";
@@ -21,17 +21,24 @@ export function UiLayout({
   links: { label: string; path: string }[];
 }) {
   const pathname = usePathname();
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
     <div className="min-h-screen flex">
-      <aside className="w-64 bg-base-200 p-4 h-screen fixed left-0 overflow-y-auto border-r border-base-300">
-          <div className="flex flex-col h-full">
+      <aside className={`${collapsed ? 'w-16' : 'w-64'} transition-all duration-300 bg-base-200 p-4 h-screen fixed left-0 overflow-y-auto border-r border-base-300`}>
+          <div className="flex flex-col h-full relative">
+            <button 
+              onClick={() => setCollapsed(!collapsed)} 
+              className="btn btn-circle btn-sm absolute -right-2 top-0"
+            >
+              {collapsed ? '→' : '←'}
+            </button>
             <div className="mb-6">
               <Link href="/" className="flex justify-center">
-                <InnovatrLogo className="h-8" />
+                <InnovatrLogo className={collapsed ? "h-6" : "h-8"} />
               </Link>
             </div>
-            <nav className="flex-1">
+            <nav className={`flex-1 ${collapsed ? 'hidden' : ''}`}>
               <ul className="menu menu-vertical w-full">
                 <li className="menu-title">Navigation</li>
                 <li>
@@ -87,7 +94,7 @@ export function UiLayout({
                 </li>
               </ul>
             </nav>
-            <div className="mt-auto border-t border-base-300 pt-4">
+            <div className={`mt-auto border-t border-base-300 pt-4 ${collapsed ? 'hidden' : ''}`}>
               <div className="px-4">
                 <h3 className="text-lg font-semibold mb-2">Contact</h3>
                 <p className="text-sm text-base-content/70 mb-4">innovate@innovatr.io</p>
@@ -113,7 +120,7 @@ export function UiLayout({
             </div>
           </div>
         </aside>
-        <div className="flex-1 ml-64 flex flex-col min-h-screen">
+        <div className={`flex-1 ${collapsed ? 'ml-16' : 'ml-64'} transition-all duration-300 flex flex-col min-h-screen`}>
           <div className="sticky top-0 z-50">
             <Navbar links={links} />
             <ClusterChecker>

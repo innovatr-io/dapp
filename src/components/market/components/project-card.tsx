@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Project } from '../market-data-access'
 
 export function ProjectCard({ project, featured }: { project: Project; featured?: boolean }) {
@@ -6,11 +7,12 @@ export function ProjectCard({ project, featured }: { project: Project; featured?
 
   return (
     <div className={`card bg-base-200 shadow-xl ${featured ? 'border-2 border-primary' : ''}`}>
-      <figure className="px-4 pt-4 relative">
-        <img
+      <figure className="px-4 pt-4 relative h-52">
+        <Image
           src={project.imageUrl}
           alt={project.title}
-          className="rounded-xl h-48 w-full object-cover"
+          fill
+          className="rounded-xl object-cover"
         />
         {project.verified && (
           <div className="absolute top-6 right-6 badge badge-primary">Verified</div>

@@ -805,7 +805,9 @@ const MOCK_PROJECTS: Project[] = [
 export function useMarket() {
   const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
-
+  const [currentPage, setCurrentPage] = useState(1)
+  const projectsPerPage = 9
+  
   useEffect(() => {
     // Simulate API call
     const loadProjects = async () => {
@@ -817,5 +819,17 @@ export function useMarket() {
     loadProjects()
   }, [])
 
-  return { projects, loading }
+  const indexOfLastProject = currentPage * projectsPerPage
+  const indexOfFirstProject = indexOfLastProject - projectsPerPage
+  const currentProjects = projects.slice(indexOfFirstProject, indexOfLastProject)
+  const totalPages = Math.ceil(projects.length / projectsPerPage)
+
+  return { 
+    projects: currentProjects, 
+    loading,
+    currentPage,
+    totalPages,
+    setCurrentPage,
+    allProjects: projects // For featured projects
+  }
 }

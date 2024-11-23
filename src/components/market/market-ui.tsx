@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { AppHero } from '../ui/ui-layout'
 import { Project } from './market-data-access'
 

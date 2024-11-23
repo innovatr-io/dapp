@@ -1,6 +1,8 @@
 'use client'
 
 import { ReactNode, Suspense } from 'react'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 import toast, { Toaster } from 'react-hot-toast'
 import { AccountChecker } from '../account/account-ui'
 import { ClusterChecker, ExplorerLink } from '../cluster/cluster-ui'
@@ -14,7 +16,65 @@ export function UiLayout({ children, links }: { children: ReactNode; links: { la
       <ClusterChecker>
         <AccountChecker />
       </ClusterChecker>
-      <main className="flex-1 mx-4 lg:mx-auto pb-16 mt-24">
+      <main className="flex-1 mx-4 lg:mx-auto pb-16 mt-24 max-w-7xl">
+        {pathname?.startsWith('/account') ? (
+          <div className="flex gap-8">
+            <aside className="w-64 bg-base-200 p-4 rounded-lg h-[calc(100vh-180px)] sticky top-24">
+              <nav>
+                <ul className="menu menu-vertical w-full">
+                  <li>
+                    <Link href="/account" className={pathname === '/account' ? 'active' : ''}>
+                      Overview
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/account/projects" className={pathname === '/account/projects' ? 'active' : ''}>
+                      Projects
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/account/investments" className={pathname === '/account/investments' ? 'active' : ''}>
+                      Investments  
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/account/settings" className={pathname === '/account/settings' ? 'active' : ''}>
+                      Settings
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </aside>
+            <div className="flex-1">
+        {pathname?.startsWith('/account') ? (
+          <div className="flex gap-8">
+            <aside className="w-64 bg-base-200 p-4 rounded-lg h-[calc(100vh-180px)] sticky top-24">
+              <nav>
+                <ul className="menu menu-vertical w-full">
+                  <li>
+                    <Link href="/account" className={pathname === '/account' ? 'active' : ''}>
+                      Overview
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/account/projects" className={pathname === '/account/projects' ? 'active' : ''}>
+                      Projects
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/account/investments" className={pathname === '/account/investments' ? 'active' : ''}>
+                      Investments  
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/account/settings" className={pathname === '/account/settings' ? 'active' : ''}>
+                      Settings
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </aside>
+            <div className="flex-1">
         <Suspense
           fallback={
             <div className="text-center my-32">
@@ -25,6 +85,13 @@ export function UiLayout({ children, links }: { children: ReactNode; links: { la
           {children}
         </Suspense>
         <Toaster position="bottom-right" />
+            </div>
+          </div>
+        ) : (
+          <div>
+            {children}
+          </div>
+        )}
       </main>
       <Footer />
     </div>

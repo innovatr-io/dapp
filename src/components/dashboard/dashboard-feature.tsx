@@ -67,7 +67,7 @@ export default function DashboardFeature() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <h3 className="font-bold mb-2">Security & Trust</h3>
-              <ul className="list-disc list-inside space-y-1 text-sm">
+              <ul className="list-disc list-inside space-y-1 text-sm text-left">
                 <li>Blockchain-backed transparency</li>
                 <li>Secure asset management</li>
                 <li>Identity verification</li>

@@ -39,7 +39,7 @@ export default function InnovatrFeature() {
             <div className="card bg-base-200">
               <div className="card-body">
                 <h3 className="card-title">Why Get Verified?</h3>
-                <ul className="list-disc list-inside space-y-2">
+                <ul className="list-disc list-inside space-y-2 text-left">
                   <li>Launch fundraising projects on Innovatr</li>
                   <li>Build trust with potential investors</li>
                   <li>Access to platform analytics and insights</li>

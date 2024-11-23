@@ -56,62 +56,13 @@ export function FeaturedProjects({ projects }: { projects: Project[] }) {
 
   if (!featuredProjects.length) return null;
 
-  return (
-    <div className="mb-12 max-w-full">
-      <div className="flex items-center justify-between mb-6 px-4">
-        <h2 className="text-2xl font-bold">Featured Projects</h2>
-        <div className="flex items-center gap-2">
-          <span className="text-sm text-base-content/70">Scroll to see more</span>
-          <div className="flex gap-2">
-            <button
-              className="btn btn-circle btn-sm"
-              onClick={() => scroll("left")}
-              disabled={isAtStart}
-            >
-              ←
-            </button>
-            <button
-              className="btn btn-circle btn-sm"
-              onClick={() => scroll("right")}
-              disabled={isAtEnd}
-            >
-              →
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="relative">
-        <div
-          ref={carouselRef}
-          className="overflow-x-auto hide-scrollbar snap-x snap-mandatory px-4"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
-          style={{
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-          }}
-        >
-          <div className="flex gap-6 min-w-full">
-            {featuredProjects.map((project) => (
-              <div
-                key={project.id}
-                className="flex-none w-full snap-start"
-              >
-                <ProjectCard project={project} featured />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div
-          className="absolute inset-y-0 left-0 w-12 bg-gradient-to-r from-base-100 to-transparent pointer-events-none"
-          style={{ opacity: isAtStart ? 0 : 0.5 }}
-        />
-        <div
-          className="absolute inset-y-0 right-0 w-12 bg-gradient-to-l from-base-100 to-transparent pointer-events-none"
-          style={{ opacity: isAtEnd ? 0 : 0.5 }}
-        />
+  return featuredProjects.length ? (
+    <div className="mb-12">
+      <h2 className="text-2xl font-bold mb-6">Featured Projects</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredProjects.map((project) => (
+          <ProjectCard key={project.id} project={project} featured />
+        ))}
       </div>
     </div>
   );

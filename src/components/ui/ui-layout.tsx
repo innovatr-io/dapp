@@ -39,7 +39,7 @@ export function UiLayout({
       {/* Mobile Hamburger */}
       <button 
         onClick={() => setMobileOpen(true)}
-        className="lg:hidden fixed top-4 left-4 z-[60] btn btn-circle btn-ghost"
+        className={`lg:hidden fixed top-4 left-4 z-[60] btn btn-circle btn-ghost ${mobileOpen ? 'hidden' : ''}`}
       >
         <Menu className="h-6 w-6" />
       </button>

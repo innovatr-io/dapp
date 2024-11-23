@@ -1,4 +1,3 @@
-import { AppHero } from "../ui/ui-layout";
 import { Project } from "./market-data-access";
 import { MarketHeader } from "./components/market-header";
 import { FeaturedProjects } from "./components/featured-projects";

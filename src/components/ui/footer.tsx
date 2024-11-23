@@ -7,7 +7,7 @@ export function Footer() {
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div>
-            <InnovatrLogo className="h-8 w-auto mb-2" />
+            <InnovatrLogo className="h-8 w-auto mb-2 text-white" />
             <p className="text-sm text-base-content/80">Revolutionizing ownership through blockchain technology.</p>
           </div>
           <div>

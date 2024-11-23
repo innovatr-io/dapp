@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState, useMemo } from 'react'
+import { PieChart } from '@/components/ui/pie-chart'
 import { Project } from '@/components/market/market-data-access'
 import Image from 'next/image'
 import { useMarket } from '@/components/market/market-data-access'
@@ -116,7 +117,10 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
                   <tr key={investment.id} className="hover:bg-base-300 transition-colors">
                     <td className="font-medium">{investment.investor}</td>
                     <td className="font-medium">${investment.amount.toLocaleString()}</td>
-                    <td>{((investment.amount / project.raised) * 100).toFixed(2)}%</td>
+                    <td className="flex items-center gap-2">
+                      <PieChart percentage={Number(((investment.amount / project.raised) * 100).toFixed(2))} />
+                      {((investment.amount / project.raised) * 100).toFixed(2)}%
+                    </td>
                     <td>{new Date(investment.date).toLocaleDateString()}</td>
                     <td>
                       <div className={`badge ${

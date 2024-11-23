@@ -6,7 +6,7 @@ export function ProjectCard({ project, featured }: { project: Project; featured?
   const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24))
 
   return (
-    <div className={`card bg-base-200 shadow-xl ${featured ? 'border-2 border-primary' : ''}`}>
+    <div className={`card bg-base-200 shadow-xl w-full ${featured ? 'border-2 border-primary' : ''}`}>
       <figure className="px-4 pt-4 relative h-52">
         <Image
           src={project.imageUrl}

@@ -1,4 +1,16 @@
 import { UserProject } from './projects-data-access'
+import Image from 'next/image'
+import { formatDistance } from 'date-fns'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Progress } from '@/components/ui/progress'
 
 interface ProjectsListProps {
   projects: UserProject[]
@@ -37,10 +49,12 @@ function ProjectCard({ project }: { project: UserProject }) {
   return (
     <Card className="overflow-hidden">
       <div className="aspect-video relative">
-        <img
+        <Image
           src={project.imageUrl}
           alt={project.title}
-          className="object-cover w-full h-full"
+          className="object-cover"
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
         <Badge
           className="absolute top-2 right-2"

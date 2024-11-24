@@ -54,8 +54,6 @@ export function ProjectsFeature() {
       <div className="mb-8">
         <ProjectStats projects={allProjects} />
       </div>
-
-      <div className="divider">Your Projects</div>
       
       <ProjectsHeader />
       

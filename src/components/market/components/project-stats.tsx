@@ -13,7 +13,7 @@ export function ProjectStats({ project }: { project: Project }) {
           </div>
           <div className="stat">
             <div className="stat-title">Raised</div>
-            <div className="stat-value text-secondary">${project.raised.toLocaleString()}</div>
+            <div className="stat-value text-success">${project.raised.toLocaleString()}</div>
           </div>
         </div>
         

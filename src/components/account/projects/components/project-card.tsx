@@ -53,14 +53,40 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </div>
           </div>
 
-          {project.status === 'funded' && project.claimableReturns > 0 && (
+          {project.status === 'funded' && (
             <div className="bg-success/20 p-3 rounded-lg mt-4">
-              <p className="text-sm font-medium text-success">
-                Claimable Returns: ${project.claimableReturns.toLocaleString()}
-              </p>
-              <button className="btn btn-success btn-sm w-full mt-2">
-                Claim Returns
-              </button>
+              <div className="grid grid-cols-2 gap-2 mb-2">
+                <div>
+                  <p className="text-xs text-base-content/70">Total Returns</p>
+                  <p className="font-medium">${project.totalReturns.toLocaleString()}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-base-content/70">Last Distribution</p>
+                  <p className="font-medium">
+                    {project.lastDistribution ? new Date(project.lastDistribution).toLocaleDateString() : 'None'}
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-2 gap-2 mb-3">
+                <div>
+                  <p className="text-xs text-base-content/70">Distributed</p>
+                  <p className="font-medium">${project.profitsDistributed.toLocaleString()}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-base-content/70">Backers</p>
+                  <p className="font-medium">{project.backers}</p>
+                </div>
+              </div>
+              {project.claimableReturns > 0 && (
+                <>
+                  <p className="text-sm font-medium text-success mb-2">
+                    Claimable Returns: ${project.claimableReturns.toLocaleString()}
+                  </p>
+                  <button className="btn btn-success btn-sm w-full">
+                    Claim Returns
+                  </button>
+                </>
+              )}
             </div>
           )}
 

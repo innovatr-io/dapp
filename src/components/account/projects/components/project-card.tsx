@@ -16,7 +16,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           fill
           className="rounded-xl object-cover"
         />
-        <div className="absolute top-6 right-6 badge badge-primary">
+        <div className={`absolute top-6 right-6 badge ${project.status === 'funded' ? 'badge-success' : 'badge-primary'}`}>
           {project.status}
         </div>
       </figure>

@@ -16,7 +16,7 @@ export function InvestmentCard({ investment }: InvestmentCardProps) {
           fill
           className="rounded-xl object-cover"
         />
-        <div className="absolute top-6 right-6 badge badge-primary">
+        <div className={`absolute top-6 right-6 badge ${investment.status === 'funded' ? 'badge-success' : 'badge-primary'}`}>
           {investment.status}
         </div>
       </figure>

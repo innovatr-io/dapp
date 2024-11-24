@@ -38,7 +38,7 @@ export function ProjectCard({ project, featured }: { project: Project; featured?
               <span>Raised: ${project.raised.toLocaleString()}</span>
             </div>
             <progress
-              className="progress progress-primary"
+              className={`progress ${project.raised >= project.goal ? 'progress-success' : 'progress-primary'}`}
               value={project.raised}
               max={project.goal}
             ></progress>

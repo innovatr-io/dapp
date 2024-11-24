@@ -30,7 +30,7 @@ export function ProjectStats({ project }: { project: Project }) {
       </div>
 
       <progress
-        className="progress progress-primary mb-6"
+        className={`progress mb-6 ${project.raised >= project.goal ? 'progress-success' : 'progress-primary'}`}
         value={project.raised}
         max={project.goal}
       ></progress>

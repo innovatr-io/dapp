@@ -52,7 +52,7 @@ export function ProjectsList({ projects, isLoading }: ProjectsListProps) {
                 <span>{((project.totalRaised / project.goal) * 100).toFixed(1)}%</span>
               </div>
               <progress
-                className="progress progress-primary w-full"
+                className={`progress w-full ${project.totalRaised >= project.goal ? 'progress-success' : 'progress-primary'}`}
                 value={project.totalRaised}
                 max={project.goal}
               ></progress>

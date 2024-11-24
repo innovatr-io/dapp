@@ -1,4 +1,5 @@
 import { Project } from '../market-data-access'
+import { formatDistanceToNow } from 'date-fns'
 
 export function ProjectStats({ project }: { project: Project }) {
   const timeLeft = new Date(project.endDate).getTime() - new Date().getTime()
@@ -25,7 +26,7 @@ export function ProjectStats({ project }: { project: Project }) {
           </div>
           <div className="stat">
             <div className="stat-title">Days Left</div>
-            <div className="stat-value">{daysLeft}</div>
+            <div className="stat-value">{formatDistanceToNow(project.endDate, { addSuffix: false })}</div>
           </div>
         </div>
       </div>

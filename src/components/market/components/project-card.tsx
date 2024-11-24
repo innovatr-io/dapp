@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Project } from '../market-data-access'
+import { formatDistanceToNow } from 'date-fns'
 
 export function ProjectCard({ project, featured }: { project: Project; featured?: boolean }) {
   const timeLeft = new Date(project.endDate).getTime() - new Date().getTime()
@@ -44,7 +45,7 @@ export function ProjectCard({ project, featured }: { project: Project; featured?
         
         <div className="flex justify-between items-center text-sm mt-2">
           <span>{project.backers} backers</span>
-          <span>{daysLeft} days left</span>
+          <span>{formatDistanceToNow(project.endDate, { addSuffix: false })} left</span>
         </div>
         
         <div className="card-actions justify-end mt-4">

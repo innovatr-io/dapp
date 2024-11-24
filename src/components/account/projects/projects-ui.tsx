@@ -1,6 +1,5 @@
 import { UserProject } from './projects-data-access'
 import Image from 'next/image'
-import { formatDistance } from 'date-fns'
 
 interface ProjectsListProps {
   projects: UserProject[]
@@ -80,7 +79,7 @@ export function ProjectsList({ projects, isLoading }: ProjectsListProps) {
 
             <div className="text-sm text-base-content/70 mt-4">
               {project.status === 'active' ? (
-                <p>Ends in {formatDistance(new Date(), project.endDate)}</p>
+                <p>Ends in {Math.ceil((project.endDate.getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24))} days</p>
               ) : (
                 <p>Funding {project.status}</p>
               )}

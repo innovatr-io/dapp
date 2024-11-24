@@ -1,7 +1,3 @@
-import { useQuery } from '@tanstack/react-query'
-import { useConnection, useWallet } from '@solana/wallet-adapter-react'
-import { PublicKey } from '@solana/web3.js'
-
 export interface UserProject {
   id: string
   title: string
@@ -16,24 +12,8 @@ export interface UserProject {
   endDate: Date
 }
 
-export function useUserProjects() {
-  const { connection } = useConnection()
-  const { publicKey } = useWallet()
-
-  return useQuery({
-    queryKey: ['user-projects', publicKey?.toBase58()],
-    queryFn: async (): Promise<UserProject[]> => {
-      if (!publicKey) return []
-      
-      // TODO: Replace with actual blockchain data fetching
-      return mockProjects
-    },
-    enabled: !!publicKey,
-  })
-}
-
 // Mock data for development
-const mockProjects: UserProject[] = [
+export const mockProjects: UserProject[] = [
   {
     id: '1',
     title: 'New Jazz Album',

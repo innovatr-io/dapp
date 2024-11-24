@@ -1,8 +1,24 @@
-import { useUserProjects } from './projects-data-access'
+'use client'
+
+import { useQuery } from '@tanstack/react-query'
+import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 import { ProjectsList } from './projects-ui'
+import { mockProjects } from './projects-data-access'
 
 export function ProjectsFeature() {
-  const { data: projects = [], isLoading } = useUserProjects()
+  const { connection } = useConnection()
+  const { publicKey } = useWallet()
+
+  const { data: projects = [], isLoading } = useQuery({
+    queryKey: ['user-projects', publicKey?.toBase58()],
+    queryFn: async () => {
+      if (!publicKey) return []
+      
+      // TODO: Replace with actual blockchain data fetching
+      return mockProjects
+    },
+    enabled: !!publicKey,
+  })
 
   return (
     <div className="container py-8">

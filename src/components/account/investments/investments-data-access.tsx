@@ -36,7 +36,7 @@ export const mockInvestments: UserInvestment[] = [
     totalRaised: 50000,
     goal: 50000,
     status: 'funded',
-    claimableReturns: 125,
+    claimableReturns: 250,
     returnRate: 12.5,
     endDate: new Date('2024-10-15'),
   },

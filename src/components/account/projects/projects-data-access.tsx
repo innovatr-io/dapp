@@ -90,9 +90,9 @@ export const mockProjects: CreatorProject[] = [
     category: 'EP',
     endDate: new Date('2024-03-20'),
     backers: 120,
-    profitsDistributed: 0,
-    lastDistribution: null,
-    totalReturns: 0,
+    profitsDistributed: 2240,
+    lastDistribution: new Date('2024-03-25'),
+    totalReturns: 2240,
     projectUpdates: []
   },
   {
@@ -130,9 +130,9 @@ export const mockProjects: CreatorProject[] = [
     category: 'Tour',
     endDate: new Date('2024-05-25'),
     backers: 200,
-    profitsDistributed: 0,
-    lastDistribution: null,
-    totalReturns: 0,
+    profitsDistributed: 7200,
+    lastDistribution: new Date('2024-05-30'),
+    totalReturns: 7200,
     projectUpdates: []
   },
   {
@@ -150,9 +150,9 @@ export const mockProjects: CreatorProject[] = [
     category: 'Equipment',
     endDate: new Date('2024-06-30'),
     backers: 95,
-    profitsDistributed: 0,
-    lastDistribution: null,
-    totalReturns: 0,
+    profitsDistributed: 1650,
+    lastDistribution: new Date('2024-07-05'),
+    totalReturns: 1650,
     projectUpdates: []
   }
 ]

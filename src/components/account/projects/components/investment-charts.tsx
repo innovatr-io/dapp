@@ -71,6 +71,11 @@ export function InvestmentCharts({ projects }: InvestmentChartsProps) {
       mode: 'index' as const,
       intersect: false,
     },
+    plugins: {
+      title: {
+        display: false
+      }
+    },
     scales: {
       y: {
         type: 'linear' as const,

@@ -51,7 +51,7 @@ export function ProjectsFeature() {
       </div>
 
       <div className="mb-8">
-        <ProjectStats projects={projects} />
+        <ProjectStats projects={allProjects} />
       </div>
 
       <div className="divider">Your Projects</div>

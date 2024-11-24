@@ -5,7 +5,7 @@ export function ProjectStats({ project }: { project: Project }) {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+      <div className="flex flex-col md:flex-row gap-6 mb-6">
         <div className="stats shadow">
           <div className="stat">
             <div className="stat-title">Goal</div>

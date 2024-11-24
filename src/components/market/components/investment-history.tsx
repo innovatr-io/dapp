@@ -16,7 +16,8 @@ export function InvestmentHistory({ project }: { project: Project }) {
       <div className="card-body">
         <h2 className="text-2xl font-bold mb-4">Investment History</h2>
         <div className="overflow-x-auto">
-          <table className="table table-zebra">
+          <div className="overflow-x-auto">
+            <table className="table table-zebra w-full">
             <thead className="bg-base-300">
               <tr>
                 <th className="font-bold">Investor</th>

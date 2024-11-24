@@ -40,11 +40,13 @@ export function ProjectsList({ projects, isLoading }: ProjectsListProps) {
             </div>
           </figure>
           
-          <div className="card-body">
-            <h2 className="card-title">{project.title}</h2>
-            <p className="text-base-content/70">{project.artist}</p>
+          <div className="card-body flex flex-col justify-between h-full">
+            <div>
+              <h2 className="card-title">{project.title}</h2>
+              <p className="text-base-content/70">{project.artist}</p>
+            </div>
             
-            <div className="mt-4">
+            <div>
               <div className="flex justify-between text-sm mb-2">
                 <span>Progress</span>
                 <span>{((project.totalRaised / project.goal) * 100).toFixed(1)}%</span>

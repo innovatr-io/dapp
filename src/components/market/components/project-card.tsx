@@ -22,24 +22,27 @@ export function ProjectCard({ project, featured }: { project: Project; featured?
         )}
       </figure>
       <div className="card-body flex flex-col justify-between flex-grow">
-        <div className="space-y-2">
-          <h2 className="card-title text-lg line-clamp-1">{project.title}</h2>
-          <div className="flex items-center gap-2 flex-wrap">
-            <div className="badge badge-outline">{project.category}</div>
-            <p className="text-sm text-base-content/70">by {project.artist}</p>
+        <div className="flex flex-col h-full">
+          <div className="space-y-2">
+            <h2 className="card-title text-lg line-clamp-1">{project.title}</h2>
+            <div className="flex items-center gap-2 flex-wrap">
+              <div className="badge badge-outline">{project.category}</div>
+              <p className="text-sm text-base-content/70">by {project.artist}</p>
+            </div>
+            <p className="text-sm text-base-content/70 line-clamp-3">{project.description}</p>
           </div>
-          <p className="text-sm text-base-content/70 line-clamp-3">{project.description}</p>
-        </div>
-        
-        <div className="flex justify-between items-center text-sm mt-2">
-          <span>Goal: ${project.goal.toLocaleString()}</span>
-          <span>Raised: ${project.raised.toLocaleString()}</span>
-        </div>
-        <progress
-          className="progress progress-primary"
-          value={project.raised}
-          max={project.goal}
-        ></progress>
+          
+          <div className="mt-auto">
+            <div className="flex justify-between items-center text-sm mt-2">
+              <span>Goal: ${project.goal.toLocaleString()}</span>
+              <span>Raised: ${project.raised.toLocaleString()}</span>
+            </div>
+            <progress
+              className="progress progress-primary"
+              value={project.raised}
+              max={project.goal}
+            ></progress>
+          </div>
         
         <div className="flex justify-between items-center text-sm mt-2">
           <span>{project.backers} backers</span>

@@ -25,7 +25,7 @@ export default function ProjectDetailPage({ params }: { params: { id: string } }
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="container max-w-4xl mx-auto px-4">
       <ProjectDetailHeader project={project} />
       <div className="mt-8">
         <ProjectStats project={project} />

@@ -13,6 +13,17 @@ export interface CreatorProject {
   backers: number
   returnRate: number
   claimableReturns: number
+  profitsDistributed: number
+  lastDistribution: Date | null
+  totalReturns: number
+  projectUpdates: ProjectUpdate[]
+}
+
+export interface ProjectUpdate {
+  id: string
+  date: Date
+  title: string
+  content: string
 }
 
 // Mock data for development
@@ -32,6 +43,17 @@ export const mockProjects: CreatorProject[] = [
     category: 'Album',
     endDate: new Date('2024-12-31'),
     backers: 25,
+    profitsDistributed: 0,
+    lastDistribution: null,
+    totalReturns: 0,
+    projectUpdates: [
+      {
+        id: '1',
+        date: new Date('2024-01-15'),
+        title: 'Recording Started',
+        content: 'We have begun recording the album at Sunset Studios.'
+      }
+    ]
   },
   {
     id: '2',

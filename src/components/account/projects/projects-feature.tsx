@@ -2,9 +2,9 @@
 
 import { useQuery } from '@tanstack/react-query'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
-import { ProjectsList } from './projects-ui'
 import { mockProjects } from './projects-data-access'
 import { useState } from 'react'
+import { ProjectsList } from './components/projects-list'
 
 export function ProjectsFeature() {
   const { connection } = useConnection()

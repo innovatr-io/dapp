@@ -25,12 +25,18 @@ export function ProjectsFeature() {
   return (
     <div className="container py-8">
       <div className="flex flex-col gap-6 mb-8">
-        <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-3xl font-bold tracking-tight">Your Projects</h1>
-            <p className="text-muted-foreground mt-2">
-              Manage your music projects and interact with investors
-            </p>
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">Your Projects</h1>
+          <p className="text-muted-foreground mt-2">
+            Manage your music projects and interact with investors
+          </p>
+        </div>
+        
+        <div className="flex gap-4 flex-wrap justify-between">
+          <div className="flex gap-4 flex-wrap">
+            <button className="btn btn-secondary">View Analytics</button>
+            <button className="btn btn-accent">Manage Distributions</button>
+            <button className="btn btn-ghost">Project Guidelines</button>
           </div>
           <button 
             className="btn btn-primary"
@@ -38,12 +44,6 @@ export function ProjectsFeature() {
           >
             Create New Project
           </button>
-        </div>
-        
-        <div className="flex gap-4 flex-wrap">
-          <button className="btn btn-secondary">View Analytics</button>
-          <button className="btn btn-accent">Manage Distributions</button>
-          <button className="btn btn-ghost">Project Guidelines</button>
         </div>
       </div>
 

@@ -1,43 +1,40 @@
-export interface UserProject {
+export interface CreatorProject {
   id: string
   title: string
-  artist: string
+  description: string
   imageUrl: string
-  invested: number
-  totalRaised: number
   goal: number
-  status: 'active' | 'funded' | 'ended'
-  claimableReturns: number
-  returnRate: number
+  raised: number
+  status: 'draft' | 'active' | 'funded' | 'ended'
+  category: string
   endDate: Date
+  backers: number
 }
 
 // Mock data for development
-export const mockProjects: UserProject[] = [
+export const mockProjects: CreatorProject[] = [
   {
     id: '1',
-    title: 'New Jazz Album',
-    artist: 'John Smith Quartet',
-    imageUrl: 'https://picsum.photos/seed/jazz/400/300',
-    invested: 500,
-    totalRaised: 8500,
-    goal: 10000,
+    title: 'My First Album',
+    description: 'A collection of original jazz compositions',
+    imageUrl: 'https://picsum.photos/seed/album1/400/300',
+    goal: 15000,
+    raised: 5000,
     status: 'active',
-    claimableReturns: 0,
-    returnRate: 2.5,
+    category: 'Album',
     endDate: new Date('2024-12-31'),
+    backers: 25,
   },
   {
     id: '2',
-    title: 'Electronic Music Festival',
-    artist: 'Various Artists',
-    imageUrl: 'https://picsum.photos/seed/festival/400/300',
-    invested: 1000,
-    totalRaised: 50000,
+    title: 'Summer Music Festival',
+    description: 'A three-day music festival featuring local artists',
+    imageUrl: 'https://picsum.photos/seed/festival2/400/300',
     goal: 50000,
+    raised: 50000,
     status: 'funded',
-    claimableReturns: 125,
-    returnRate: 12.5,
-    endDate: new Date('2024-10-15'),
+    category: 'Event',
+    endDate: new Date('2024-08-15'),
+    backers: 150,
   },
 ]

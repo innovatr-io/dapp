@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useConnection, useWallet } from '@solana/wallet-adapter-react'
 import { mockProjects } from './projects-data-access'
 import { useState } from 'react'
+import Link from 'next/link'
 import { ProjectsList } from './components/projects-list'
 import { ProjectStats } from './components/project-stats'
 import { ProjectsHeader } from './components/projects-header'
@@ -41,6 +42,12 @@ export function ProjectsFeature() {
             <button className="btn btn-secondary">View Analytics</button>
             <button className="btn btn-accent">Manage Distributions</button>
             <button className="btn btn-ghost">Project Guidelines</button>
+            <Link 
+              href={`/account/${publicKey?.toBase58()}/settings`} 
+              className="btn btn-ghost"
+            >
+              Account Settings
+            </Link>
           </div>
           <button 
             className="btn btn-primary"

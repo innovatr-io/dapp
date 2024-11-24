@@ -33,7 +33,6 @@ export function ProjectStats({ projects }: ProjectStatsProps) {
           </div>
           
           <div className="lg:w-2/3">
-            <h3 className="text-lg font-semibold mb-4">Investment Trends</h3>
             <InvestmentCharts projects={projects} />
           </div>
         </div>

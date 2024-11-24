@@ -4,8 +4,6 @@ import { Project } from '../market-data-access'
 import { formatDistanceToNow } from 'date-fns'
 
 export function ProjectCard({ project, featured }: { project: Project; featured?: boolean }) {
-  const timeLeft = new Date(project.endDate).getTime() - new Date().getTime()
-  const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24))
 
   return (
     <div className={`card bg-base-200 shadow-xl w-full h-full flex flex-col ${featured ? 'border-2 border-primary' : ''}`}>

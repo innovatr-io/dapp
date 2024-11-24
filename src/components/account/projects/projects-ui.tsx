@@ -1,16 +1,6 @@
 import { UserProject } from './projects-data-access'
 import Image from 'next/image'
 import { formatDistance } from 'date-fns'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import { Progress } from '@/components/ui/progress'
 
 interface ProjectsListProps {
   projects: UserProject[]
@@ -36,78 +26,69 @@ export function ProjectsList({ projects, isLoading }: ProjectsListProps) {
   return (
     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {projects.map((project) => (
-        <ProjectCard key={project.id} project={project} />
+        <div key={project.id} className="card bg-base-200 shadow-xl">
+          <figure className="relative aspect-video">
+            <Image
+              src={project.imageUrl}
+              alt={project.title}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+            <div className="absolute top-2 right-2 badge badge-primary">
+              {project.status}
+            </div>
+          </figure>
+          
+          <div className="card-body">
+            <h2 className="card-title">{project.title}</h2>
+            <p className="text-base-content/70">{project.artist}</p>
+            
+            <div className="mt-4">
+              <div className="flex justify-between text-sm mb-2">
+                <span>Progress</span>
+                <span>{((project.totalRaised / project.goal) * 100).toFixed(1)}%</span>
+              </div>
+              <progress
+                className="progress progress-primary w-full"
+                value={project.totalRaised}
+                max={project.goal}
+              ></progress>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-4 mt-4">
+              <div>
+                <p className="text-sm text-base-content/70">Your Investment</p>
+                <p className="font-medium">${project.invested}</p>
+              </div>
+              <div>
+                <p className="text-sm text-base-content/70">Return Rate</p>
+                <p className="font-medium">{project.returnRate}%</p>
+              </div>
+            </div>
+
+            {project.status === 'funded' && project.claimableReturns > 0 && (
+              <div className="bg-success/20 p-3 rounded-lg mt-4">
+                <p className="text-sm font-medium text-success">
+                  Claimable Returns: ${project.claimableReturns}
+                </p>
+                <button className="btn btn-success btn-sm w-full mt-2">
+                  Claim Returns
+                </button>
+              </div>
+            )}
+
+            <div className="text-sm text-base-content/70 mt-4">
+              {project.status === 'active' ? (
+                <p>Ends in {formatDistance(new Date(), project.endDate)}</p>
+              ) : (
+                <p>Funding {project.status}</p>
+              )}
+            </div>
+          </div>
+        </div>
       ))}
     </div>
   )
 }
 
-function ProjectCard({ project }: { project: UserProject }) {
-  const progress = (project.totalRaised / project.goal) * 100
-  const timeLeft = formatDistance(new Date(), project.endDate)
-
-  return (
-    <Card className="overflow-hidden">
-      <div className="aspect-video relative">
-        <Image
-          src={project.imageUrl}
-          alt={project.title}
-          className="object-cover"
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        />
-        <Badge
-          className="absolute top-2 right-2"
-          variant={project.status === 'funded' ? 'success' : 'default'}
-        >
-          {project.status === 'funded' ? 'Funded' : 'Active'}
-        </Badge>
-      </div>
-      <CardHeader>
-        <CardTitle>{project.title}</CardTitle>
-        <CardDescription>{project.artist}</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
-          <div>
-            <div className="flex justify-between text-sm mb-2">
-              <span>Progress</span>
-              <span>{progress.toFixed(1)}%</span>
-            </div>
-            <Progress value={progress} />
-          </div>
-          
-          <div className="grid grid-cols-2 gap-4 text-sm">
-            <div>
-              <p className="text-muted-foreground">Your Investment</p>
-              <p className="font-medium">${project.invested}</p>
-            </div>
-            <div>
-              <p className="text-muted-foreground">Return Rate</p>
-              <p className="font-medium">{project.returnRate}%</p>
-            </div>
-          </div>
-
-          {project.status === 'funded' && project.claimableReturns > 0 && (
-            <div className="bg-green-50 dark:bg-green-950 p-3 rounded-lg">
-              <p className="text-sm font-medium text-green-600 dark:text-green-400">
-                Claimable Returns: ${project.claimableReturns}
-              </p>
-              <Button className="w-full mt-2" size="sm">
-                Claim Returns
-              </Button>
-            </div>
-          )}
-
-          <div className="text-sm text-muted-foreground">
-            {project.status === 'active' ? (
-              <p>Ends in {timeLeft}</p>
-            ) : (
-              <p>Funding {project.status}</p>
-            )}
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  )
-}

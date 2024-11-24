@@ -57,5 +57,6 @@ export function ProjectCard({ project, featured }: { project: Project; featured?
         </div>
       </div>
     </div>
+    </div>
   )
 }

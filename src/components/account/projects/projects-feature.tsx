@@ -6,8 +6,6 @@ import { mockProjects } from './projects-data-access'
 import { useState } from 'react'
 import { ProjectsList } from './components/projects-list'
 import { ProjectStats } from './components/project-stats'
-import { QuickActions } from './components/quick-actions'
-
 export function ProjectsFeature() {
   const { connection } = useConnection()
   const { publicKey } = useWallet()
@@ -26,24 +24,31 @@ export function ProjectsFeature() {
 
   return (
     <div className="container py-8">
-      <div className="flex justify-between items-center mb-8">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Your Projects</h1>
-          <p className="text-muted-foreground mt-2">
-            Manage your music projects and interact with investors
-          </p>
+      <div className="flex flex-col gap-6 mb-8">
+        <div className="flex justify-between items-center">
+          <div>
+            <h1 className="text-3xl font-bold tracking-tight">Your Projects</h1>
+            <p className="text-muted-foreground mt-2">
+              Manage your music projects and interact with investors
+            </p>
+          </div>
+          <button 
+            className="btn btn-primary"
+            onClick={() => setShowNewProjectModal(true)}
+          >
+            Create New Project
+          </button>
         </div>
-        <button 
-          className="btn btn-primary"
-          onClick={() => setShowNewProjectModal(true)}
-        >
-          Create New Project
-        </button>
+        
+        <div className="flex gap-4 flex-wrap">
+          <button className="btn btn-secondary">View Analytics</button>
+          <button className="btn btn-accent">Manage Distributions</button>
+          <button className="btn btn-ghost">Project Guidelines</button>
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+      <div className="mb-8">
         <ProjectStats projects={projects} />
-        <QuickActions />
       </div>
 
       <div className="divider">Your Projects</div>

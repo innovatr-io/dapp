@@ -70,5 +70,9 @@ export const mockProjects: CreatorProject[] = [
     category: 'Event',
     endDate: new Date('2024-08-15'),
     backers: 150,
+    profitsDistributed: 0,
+    lastDistribution: null,
+    totalReturns: 0,
+    projectUpdates: []
   },
 ]

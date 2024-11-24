@@ -8,6 +8,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  ChartData,
 } from 'chart.js'
 import { Bar, Line } from 'react-chartjs-2'
 import { CreatorProject } from '../projects-data-access'
@@ -103,7 +104,7 @@ export function InvestmentCharts({ projects }: InvestmentChartsProps) {
 
   return (
     <div className="w-full h-[300px]">
-      <Bar data={chartData} options={options} />
+      <Bar data={chartData as ChartData<"bar", number[], string>} options={options} />
     </div>
   )
 }

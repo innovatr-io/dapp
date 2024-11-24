@@ -74,52 +74,48 @@ export function UiLayout({
             <nav className="flex-1">
               <ul className="menu menu-vertical w-full">
                 <li className="menu-title">Navigation</li>
-                <li>
-                  <Link href="/market" className={pathname === "/market" ? "active" : ""}>
-                    Market
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/innovatr"
-                    className={pathname === "/innovatr" ? "active" : ""}
-                  >
-                    Innovatr Program
-                  </Link>
-                </li>
+                {links.map((link) => (
+                  <li key={link.path}>
+                    <Link href={link.path} className={pathname === link.path ? "active" : ""}>
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+                
                 <li className="menu-title mt-4">Account</li>
                 <li>
                   <Link href="/account" className={pathname === "/account" ? "active" : ""}>
                     Overview
                   </Link>
                 </li>
-                <li className={!publicKey ? "disabled" : ""}>
-                  <Link
-                    href={publicKey ? "/account/projects" : "#"}
-                    className={`${pathname === "/account/projects" ? "active" : ""} ${!publicKey ? "cursor-not-allowed opacity-50" : ""}`}
-                    onClick={(e) => !publicKey && e.preventDefault()}
-                  >
-                    Projects
-                  </Link>
-                </li>
-                <li className={!publicKey ? "disabled" : ""}>
-                  <Link
-                    href={publicKey ? "/account/investments" : "#"}
-                    className={`${pathname === "/account/investments" ? "active" : ""} ${!publicKey ? "cursor-not-allowed opacity-50" : ""}`}
-                    onClick={(e) => !publicKey && e.preventDefault()}
-                  >
-                    Investments
-                  </Link>
-                </li>
-                <li className={!publicKey ? "disabled" : ""}>
-                  <Link
-                    href={publicKey ? "/account/settings" : "#"}
-                    className={`${pathname === "/account/settings" ? "active" : ""} ${!publicKey ? "cursor-not-allowed opacity-50" : ""}`}
-                    onClick={(e) => !publicKey && e.preventDefault()}
-                  >
-                    Settings
-                  </Link>
-                </li>
+                {publicKey && (
+                  <>
+                    <li>
+                      <Link
+                        href={`/account/${publicKey.toBase58()}/projects`}
+                        className={pathname.includes("/projects") ? "active" : ""}
+                      >
+                        My Projects
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href={`/account/${publicKey.toBase58()}/investments`}
+                        className={pathname.includes("/investments") ? "active" : ""}
+                      >
+                        My Investments
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href={`/account/${publicKey.toBase58()}/settings`}
+                        className={pathname.includes("/settings") ? "active" : ""}
+                      >
+                        Settings
+                      </Link>
+                    </li>
+                  </>
+                )}
               </ul>
             </nav>
             <div className="mt-auto border-t border-base-300 pt-4">

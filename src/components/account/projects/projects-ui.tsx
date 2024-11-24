@@ -1,9 +1,9 @@
-import { UserProject } from './projects-data-access'
+import { CreatorProject } from './projects-data-access'
 import Image from 'next/image'
 import { formatDistanceToNow } from 'date-fns'
 
 interface ProjectsListProps {
-  projects: UserProject[]
+  projects: CreatorProject[]
   isLoading: boolean
 }
 

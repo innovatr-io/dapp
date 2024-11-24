@@ -9,6 +9,8 @@ import {
   Tooltip,
   Legend,
   ChartData,
+  LineController,
+  BarController,
 } from 'chart.js'
 import { Bar, Line } from 'react-chartjs-2'
 import { CreatorProject } from '../projects-data-access'
@@ -21,7 +23,9 @@ ChartJS.register(
   PointElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  LineController,
+  BarController
 )
 
 interface InvestmentChartsProps {

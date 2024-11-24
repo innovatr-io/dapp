@@ -97,7 +97,7 @@ export function InvestmentCharts({ projects }: InvestmentChartsProps) {
   }
 
   return (
-    <div className="w-full h-64">
+    <div className="w-full h-[300px]">
       <Bar data={chartData} options={options} />
     </div>
   )

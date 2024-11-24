@@ -6,6 +6,7 @@ import { mockProjects } from './projects-data-access'
 import { useState } from 'react'
 import { ProjectsList } from './components/projects-list'
 import { ProjectStats } from './components/project-stats'
+import { ProjectsHeader } from './components/projects-header'
 export function ProjectsFeature() {
   const { connection } = useConnection()
   const { publicKey } = useWallet()
@@ -55,6 +56,8 @@ export function ProjectsFeature() {
       </div>
 
       <div className="divider">Your Projects</div>
+      
+      <ProjectsHeader />
       
       <ProjectsList 
         projects={allProjects.slice((currentPage - 1) * projectsPerPage, currentPage * projectsPerPage)}

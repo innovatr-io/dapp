@@ -11,7 +11,10 @@ export function ProjectsFeature() {
   const { publicKey } = useWallet()
   const [showNewProjectModal, setShowNewProjectModal] = useState(false)
 
-  const { data: projects = [], isLoading } = useQuery({
+  const [currentPage, setCurrentPage] = useState(1);
+  const [projectsPerPage, setProjectsPerPage] = useState(9);
+
+  const { data: allProjects = [], isLoading } = useQuery({
     queryKey: ['user-projects', publicKey?.toBase58()],
     queryFn: async () => {
       if (!publicKey) return []
@@ -53,7 +56,16 @@ export function ProjectsFeature() {
 
       <div className="divider">Your Projects</div>
       
-      <ProjectsList projects={projects} isLoading={isLoading} />
+      <ProjectsList 
+        projects={allProjects.slice((currentPage - 1) * projectsPerPage, currentPage * projectsPerPage)}
+        isLoading={isLoading}
+        currentPage={currentPage}
+        totalPages={Math.ceil(allProjects.length / projectsPerPage)}
+        setCurrentPage={setCurrentPage}
+        projectsPerPage={projectsPerPage}
+        onProjectsPerPageChange={setProjectsPerPage}
+        totalProjects={allProjects.length}
+      />
     </div>
   )
 }

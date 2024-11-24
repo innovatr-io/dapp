@@ -30,37 +30,31 @@ export function SettingsFeature() {
         </p>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-8">
-        <div className="w-full md:w-64 flex-shrink-0">
-          <div className="tabs tabs-vertical">
-            <button
-              className={`tab tab-lg w-full justify-start ${
-                activeTab === "profile" ? "tab-active" : ""
-              }`}
-              onClick={() => setActiveTab("profile")}
-            >
-              Profile
-            </button>
-            <button
-              className={`tab tab-lg w-full justify-start ${
-                activeTab === "notifications" ? "tab-active" : ""
-              }`}
-              onClick={() => setActiveTab("notifications")}
-            >
-              Notifications
-            </button>
-            <button
-              className={`tab tab-lg w-full justify-start ${
-                activeTab === "security" ? "tab-active" : ""
-              }`}
-              onClick={() => setActiveTab("security")}
-            >
-              Security
-            </button>
-          </div>
+      <div className="flex flex-col gap-8">
+        <div className="tabs tabs-bordered">
+          <button
+            className={`tab tab-lg ${activeTab === "profile" ? "tab-active" : ""}`}
+            onClick={() => setActiveTab("profile")}
+          >
+            Profile
+          </button>
+          <button
+            className={`tab tab-lg ${
+              activeTab === "notifications" ? "tab-active" : ""
+            }`}
+            onClick={() => setActiveTab("notifications")}
+          >
+            Notifications
+          </button>
+          <button
+            className={`tab tab-lg ${activeTab === "security" ? "tab-active" : ""}`}
+            onClick={() => setActiveTab("security")}
+          >
+            Security
+          </button>
         </div>
 
-        <div className="flex-1">
+        <div>
           {activeTab === "profile" && <SettingsForm />}
           {activeTab === "notifications" && <NotificationsSettings />}
           {activeTab === "security" && <SecuritySettings />}

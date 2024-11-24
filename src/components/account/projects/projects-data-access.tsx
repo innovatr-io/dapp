@@ -6,6 +6,7 @@ export interface CreatorProject {
   imageUrl: string
   goal: number
   totalRaised: number
+  invested: number
   status: 'draft' | 'active' | 'funded' | 'ended'
   category: string
   endDate: Date
@@ -24,6 +25,7 @@ export const mockProjects: CreatorProject[] = [
     goal: 15000,
     artist: 'John Smith',
     totalRaised: 5000,
+    invested: 1000,
     returnRate: 2.5,
     claimableReturns: 0,
     status: 'active',
@@ -39,6 +41,7 @@ export const mockProjects: CreatorProject[] = [
     goal: 50000,
     artist: 'Various Artists',
     totalRaised: 50000,
+    invested: 2500,
     returnRate: 12.5,
     claimableReturns: 750,
     status: 'funded',

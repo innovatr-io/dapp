@@ -76,6 +76,11 @@ export function UiLayout({
             <nav className="flex-1">
               <ul className="menu menu-vertical w-full">
                 <li className="menu-title">Navigation</li>
+                <li>
+                  <Link href="/innovatr" className={pathname === "/innovatr" ? "active" : ""}>
+                    Innovatr Project
+                  </Link>
+                </li>
                 {links.map((link) => (
                   <li key={link.path}>
                     <Link href={link.path} className={pathname === link.path ? "active" : ""}>
